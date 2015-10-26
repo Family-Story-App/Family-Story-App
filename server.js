@@ -3,6 +3,11 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 3000;
+var passport = require('passport');
+var mongoose = require('mongoose');
+require('./models/Family');
+require('./models/Story');
+require('./models/User');
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -20,12 +25,16 @@ app.set('view options', {
 //middleware that allows for us to parse JSON and UTF-8 from the body of an HTTP request
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(passport.initialize());
+var StoryRoutes = require('./routes/StoryRouter');
+var UserRoutes = require('./routes/UserRouter');
 
 //on homepage load, render the index page
 app.get('/', function(req, res) {
 	res.render('index');
 });
-
+app.use('/api/story', StoryRoutes);
+app.use('/api/user', UserRoutes);
 var server = app.listen(port, function() {
 	var host = server.address().address;
 	console.log('Example app listening at http://localhost:' + port);

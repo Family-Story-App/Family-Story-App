@@ -1,3 +1,5 @@
+// display all content
+
 (function() {
 	'use strict';
 	angular.module('app')
