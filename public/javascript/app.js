@@ -1,9 +1,8 @@
 (function() {
 	'use strict';
-	angular.module('app', ['ui.router'])
+	angular.module('app', ['ui.router', 'ngMaterial'])
 	.config(Config);
-	Config.$inject = ['$stateProvider', '$urlRouterProvider'];
-	function Config($stateProvider, $urlRouterProvider) {
+	function Config($stateProvider, $urlRouterProvider, $httpProvider) {
 		$stateProvider.state('Home',{
 			url: '/',
 			templateUrl: 'views/home.html'
@@ -12,20 +11,27 @@
 			templateUrl: 'views/Login-Reg.html',
 		}).state('EditStory',{
 			url: '/edit_story/:id',
-			templateUrl: 'views/Edit.html',
+			templateUrl: 'views/EditStory.html',
 		}).state('AddStory',{
 			url: '/add_story',
-			templateUrl: 'views/Add.html'
+			templateUrl: 'views/AddStory.html'
 		}).state('EditFamily',{
 			url: '/edit_family/:id',
-			templateUrl: 'views/EditFam.html',
+			templateUrl: 'views/EditFamily.html',
 		}).state('AddFamily',{
 			url: '/add_family',
-			templateUrl: 'views/AddFam.html'
+			templateUrl: 'views/AddFamily.html'
 		}).state('Story',{
 			url: '/story/:id',
 			templateUrl: 'views/Story.html'
+		}).state('Family',{
+			url: '/family',
+			templateUrl: 'views/Family.html'
+		}).state('Profile',{
+			url: '/profile',
+			templateUrl: 'views/UserProfile.html'
 		});
 		$urlRouterProvider.otherwise('/');
+		$httpProvider.interceptors.push('AuthFactory');
 	}
 })();

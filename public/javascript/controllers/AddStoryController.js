@@ -3,8 +3,8 @@
 (function() {
 	'use strict';
 	angular.module('app')
-	.controller('HomeController', HomeController);
-	function HomeController($state) {
+	.controller('AddStoryController', AddStoryController);
+	function AddStoryController($state) {
 
 		var vm = this;
 		vm.title = 'Welcome to our App!';

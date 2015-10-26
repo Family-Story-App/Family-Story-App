@@ -6,6 +6,7 @@ var StorySchema = new mongoose.Schema({
     Title: String,
     body: String,
     photo: String,
+    tags: String,
     createBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     created: Date,
     deleted: Date,

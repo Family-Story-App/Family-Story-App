@@ -3,11 +3,10 @@
 <head>
 	<title>My App</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap_theme.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.11.4/angular-material.css">
 	<link rel="stylesheet" type="text/css" href="/css/site.css">
 </head>
-<body>
+<body ng-controller="GlobalController as nav">
 	<ui-view></ui-view>
 	<!-- Ext Libs -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
@@ -19,7 +18,15 @@
 	<script src="/javascript/app.js"></script>
 	<!-- Factories -->
 	<script src="/javascript/services/HomeFactory.js"></script>
+	<script src="/javascript/services/AuthFactory.js"></script>
+	<script src="/javascript/services/UserFactory.js"></script>
 	<!-- Controllers -->
 	<script src="/javascript/controllers/HomeController.js"></script>
+	<script src="/javascript/controllers/FamilyController.js"></script>
+	<script src="/javascript/controllers/StoryController.js"></script>
+	<script src="/javascript/controllers/StoryDetailsController.js"></script>
+	<script src="/javascript/controllers/GlobalController.js"></script>
+	<script src="/javascript/controllers/AddStoryController.js"></script>
+	<script src="/javascript/controllers/UserController.js"></script>
 </body>
 </html>

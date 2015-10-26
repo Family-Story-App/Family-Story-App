@@ -1,5 +1,5 @@
-// tracking and displaying ind story
-//  add comments   / fam pswd to join
+// displaying ind profile
+//  add edit functionality for profile
 
 (function() {
 	'use strict';

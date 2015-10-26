@@ -8,7 +8,8 @@ var mongoose = require('mongoose');
 require('./models/Family');
 require('./models/Story');
 require('./models/User');
-
+mongoose.connect('mongodb://localhost/FamilyStory');
+// mongoose.connect(process.env.MONGO_STRING);
 
 app.set('views', path.join(__dirname, 'views'));
 //set the view engine that will render HTML from the server to the client
@@ -28,6 +29,7 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 var StoryRoutes = require('./routes/StoryRouter');
 var UserRoutes = require('./routes/UserRouter');
+var FamilyRoutes = require('./routes/FamilyRouter');
 
 //on homepage load, render the index page
 app.get('/', function(req, res) {
@@ -35,6 +37,9 @@ app.get('/', function(req, res) {
 });
 app.use('/api/story', StoryRoutes);
 app.use('/api/user', UserRoutes);
+app.use('/api/family', FamilyRoutes);
+
+
 var server = app.listen(port, function() {
 	var host = server.address().address;
 	console.log('Example app listening at http://localhost:' + port);

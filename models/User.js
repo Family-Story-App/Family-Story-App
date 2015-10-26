@@ -12,7 +12,9 @@ var UserSchema = new mongoose.Schema({
   ],
   story: [
    {type: mongoose.Schema.Types.ObjectId, ref: 'Story'}
-  ]
+ ],
+  img: String,
+  body: String
 });
 
 UserSchema.methods.setPassword = function(password) {

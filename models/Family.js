@@ -9,9 +9,11 @@ var Familychema = new mongoose.Schema({
   createBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   created: Date,
   deleted: Date,
+  password: String, // if password matches, user is added to family
   stories: [
    {type: mongoose.Schema.Types.ObjectId, ref: 'Story'}
-  ]
+ ],
+  members: Array
 });
 
 mongoose.model('Family', FamilySchema);
