@@ -1,9 +1,28 @@
-<div ng-contoller='HomeController as vm'>
+<div ng-contoller='FamilyController as vm'>
 <!--
 form to add Family
 linked on sidebar
 
  -->
-
+ <h3>Add a Family</h3>
+<form ng-submit="vm.addFamily()">
+  <md-input-container>
+    <label style="text-align:center">Family Name</label>
+    <input type="text" ng-model="vm.family.familyName">
+  </md-input-container>
+  <md-input-container>
+    <label style="text-align:center">Family Origin</label>
+    <input type="text" ng-model="vm.family.origin">
+  </md-input-container>
+  <md-input-container>
+    <label style="text-align:center">Photo</label>
+    <input type="text" ng-model="vm.family.photo">
+  </md-input-container>
+  <md-input-container>
+    <label style="text-align:center">Family Password</label>
+    <input type="text" ng-model="vm.family.password">
+  </md-input-container>
+  <md-button type="submit">Submit</md-button>
+</form>
 
 </div>
