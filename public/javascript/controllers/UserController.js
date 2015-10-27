@@ -4,12 +4,13 @@
 (function() {
 	'use strict';
 	angular.module('app')
-	.controller('StoryDetailsController', StoryDetailsController);
-	function StoryDetailsController(HomeFactory, $stateParams, $state) {
+	.controller('UserController', UserController);
+	function UserController(HomeFactory, $stateParams, $state) {
 
 		var vm = this;
-		vm.title = 'Welcome to our App!';
-
+//if(vm.user.photo === null){
+//vm.user.photo = "genericphotourl"
+//}
 
 	}
 })();

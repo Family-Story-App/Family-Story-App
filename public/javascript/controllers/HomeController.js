@@ -7,7 +7,9 @@
 	function HomeController($state) {
 
 		var vm = this;
-		vm.title = 'Welcome to our App!';
+		HomeFactory.getStories().then(function(res){
+			vm.stories = res;
+		});
 
 
 	}
