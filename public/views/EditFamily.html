@@ -1,4 +1,4 @@
-<div ng-contoller='FamilyController as vm'>
+<div ng-contoller='EditFamilyController as vm'>
 <!--
 form to edit the family profile page
 edit name
@@ -9,23 +9,23 @@ photo
 Add new members
 
  -->
-  <form ng-submit="vm.editFamily()">
+  <form ng-submit="vm.editFamily();">
     <md-content >
       <md-input-container>
         <label>Family Name</label>
-        <input ng-model="vm.user.family.familyName">
+        <input ng-model="vm.family.familyName">
       </md-input-container><br>
       <md-input-container>
         <label>Origin</label>
-        <input ng-model="vm.user.family.origin" >
+        <input ng-model="vm.family.origin" >
       </md-input-container><br>
       <md-input-container>
         <label>Photo</label>
-        <textarea ng-model="vm.user.family.photo" ></textarea>
+        <textarea ng-model="vm.family.photo" ></textarea>
       </md-input-container><br>
       <md-input-container>
         <label>Password</label>
-        <input ng-model="vm.user.family.password" >
+        <input ng-model="vm.family.password" >
       </md-input-container><br>
       <md-button type="submit">Submit</md-button>
     </md-content>
