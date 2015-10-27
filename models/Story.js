@@ -11,11 +11,11 @@ var StorySchema = new mongoose.Schema({
     created: Date,
     deleted: Date,
     reviews: [{
-    reviewer: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    body: String,
-    rating: Number,
-    postedOn: Date
-  }]
+      reviewer: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+        body: String,
+        rating: Number,
+        postedOn: Date
+      }]
 });
 
 mongoose.model('Story', StorySchema);

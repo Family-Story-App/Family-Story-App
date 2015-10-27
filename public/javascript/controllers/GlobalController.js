@@ -5,7 +5,7 @@
 	'use strict';
 	angular.module('app')
 	.controller('GlobalController', GlobalController);
-	function GlobalController(UserFactory, $state) {
+	function GlobalController(HomeFactory, $state) {
 
 		var vm = this;
 		vm.title = 'Welcome to our App!';

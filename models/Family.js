@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 
-var Familychema = new mongoose.Schema({
+var FamilySchema = new mongoose.Schema({
   familyName: String,
   origin: String,
   photo: String,
