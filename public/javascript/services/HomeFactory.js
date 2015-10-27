@@ -7,8 +7,10 @@
 		var o = {};
 
 		o.createStory = function(story){
+			console.log('making story in factory');
 			var q = $q.defer();
-			$http.post('/story', story).then(function(res){
+			console.log(story);
+			$http.post('/api/story/add', story).then(function(res){
 				q.resolve(res.data);
 			});
 			return q.promise;
