@@ -1,11 +1,41 @@
 <div ng-controller="HomeController as vm">
-	<h1>{{vm.title}}</h1>
-<!--
-Show nav
-show stories
-have search options (indivdual(s) & tags)
-
--->
+	<div flex-offset="70">
+		<md-content class="md-padding" >
+			<md-input-container>
+      <input ng-model="searchText" placeholder="Search...">
+    </md-input-container><br>
+		</md-content  >
+	</div>
+	<div ng-repeat="s in vm.stories | filter:searchText" >
+	    <md-content class="md-padding" >
+	      <div flex="35">
+	        <md-card>
+	          <img ng-src="{{s.photo}}" class="md-card-image" alt="{{s.title}}" title="{{s.title}}">
+	          <md-card-content>
+	            <div layout="row">
+	                <h2 class="md-title">{{s.title}}</h2>
+	            </div>
+	            <div layout="row">
+	                Written by:<a ui-sref=""><i>{{s.createBy}}</i></a><br>
+	            </div>
+	            <p>
+	              {{s.body| characters:50}}
+	            </p>
+	            <div layout="row">
+	              <div  >
+	                Posted in: {{s.tags}}<br>
+	                Family: <a ui-sref="Family({id: s.family._id})">{{s.family}}</a>
+	              </div>
+	            </div>
+	          </md-card-content>
+	          <div class="md-actions" layout="row" layout-align="end center">
+	            <md-button ui-sref="Story({id: s._id})">Read More</md-button>
+	        </div>
+	        </md-card>
+	      </div>
+	      <br/>
+	    </md-content>
+	  </div>
 
 
 

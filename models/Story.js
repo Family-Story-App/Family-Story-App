@@ -10,10 +10,11 @@ var StorySchema = new mongoose.Schema({
     createBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     created: Date,
     deleted: Date,
-    reviews: [{
-    reviewer: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    family: {type: mongoose.Schema.Types.ObjectId, ref: 'Family'},
+    comments: [{
+    user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     body: String,
-    rating: Number,
+    // rating: Number,
     postedOn: Date
   }]
 });

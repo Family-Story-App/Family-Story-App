@@ -17,6 +17,7 @@
     "mongoose": "^4.2.2",
     "nodemon": "^1.8.0",
     "passport": "^0.3.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "truncate.js": "^0.1.0"
   }
 }
