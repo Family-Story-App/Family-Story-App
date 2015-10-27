@@ -6,9 +6,9 @@ var Family = mongoose.model('Family');
 var Story = mongoose.model('Story');
 var passport = require('passport');
 
-router.post('/register', function(req, res, next) {
+router.post('/story', function(req, res, next) {
   console.log('hi there');
-  var user = new User(req.body);
+  var story = new Story(req.body);
   user.setPassword(req.body.password);
   user.save(function(err, result) {
     if(err) return next(err);

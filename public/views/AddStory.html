@@ -16,29 +16,36 @@ form located on Family profile, personal profile and Homepage
    </form>
  </div>
 
- <!-- NOTE: THIS FORM SHOULD BE HIDDEN (NG-SHOW) UNTIL FAMILY IS SELECTED AND LINKED!!!  Form used to edit a Story -->
+ <!-- NOTE: THIS FORM SHOULD BE HIDDEN (NG-SHOW) UNTIL FAMILY IS SELECTED AND LINKED!!!  Form used to edit a story -->
  <form >
-   <h1 style="text-align:center"> Add A New Story </h1>
+   <h1 style="text-align:center"> Add A New story </h1>
    <md-input-container>
      <label style="text-align:center">Title</label>
-     <input type="text" ng-model="vm.Story.title">
+     <input type="text" ng-model="vm.test.title">
    </md-input-container>
    <md-input-container>
      <label style="text-align:center">Photos</label>
-     <input type="text" ng-model="vm.Story.photo">
-     <img src="http://www.gettyimages.co.uk/gi-resources/images/Homepage/Category-Creative/UK/UK_Creative_462809583.jpg" alt="Story Image">
+     <input type="text" ng-model="vm.test.photo">
+     <img src="http://www.gettyimages.co.uk/gi-resources/images/Homepage/Category-Creative/UK/UK_Creative_462809583.jpg" alt="story Image">
    </md-input-container>
 
      <md-input-container>
        <label style="text-align:center">Body</label>
-       <textarea ng-model="vm.Story.body"></textarea>
+       <textarea ng-model="vm.test.body"></textarea>
      </md-input-container>
-   <md-input-container>
-     <label style="text-align:center">Tags</label>
-      <md-chips style="text-align:center" ng-model="vm.Story.tags">
-         <input type='text' >
-       </md-chips>
-   </md-input-container>
+
+     <!-- <md-input-container>
+         <label>Tags</label>
+            <md-chips
+                ng-model="vm.story.tags"
+                readonly="vm.story.readonly"
+                placeholder="Enter a tag"
+                delete-button-label="Remove Tag"
+                delete-hint="Press delete to remove tag"
+                ></md-chips>
+         </md-input-container>   <br/> -->
+
+
 
    <div style="text-align:center">
    <md-button class="md-raised md-primary">Submit</md-button>
