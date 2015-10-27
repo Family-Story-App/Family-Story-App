@@ -20,10 +20,11 @@ router.post('/', function(req, res, next) {
 router.get('/', function(req,res,next){
 Story
   .find({})
-    .select('title desc genre author img tags addedBy')
-    .populate('addedBy', 'username')
+    // .select('title desc genre author img tags addedBy')
+    // .populate('addedBy', 'username')
     .exec(function(err,result){
       if(err) return next(err);
+      console.log(result);
       res.send(result);
     });
 });

@@ -16,11 +16,10 @@
 			});
 			return q.promise;
 		};
-
 o.getStories = function(){
+console.log('get storys');
 	var q = $q.defer();
-	$http.get('/api/story')
-	.then(function(res){
+	$http.get('/api/story').then(function(res){
 		console.log("gets stuff");
 		q.resolve(res.data);
 	});

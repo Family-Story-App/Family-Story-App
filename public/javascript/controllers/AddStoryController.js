@@ -17,9 +17,12 @@
 		console.log('Add Story Control');
 	vm.AddStory = function(){
 		HomeFactory.createStory(vm.story).then(function(res){
+			vm.story = res;
 			$state.go('Story');
 		});
 	};
+
+	
 
 
 

@@ -9,14 +9,14 @@ link to family profile and author profile -->
 </div>
 <div id='Story'>
 
-  <div ng-repeat='p in vm.test' style="text-align:center">
+  <div ng-repeat='p in vm.story' style="text-align:center">
     <h1>{{p.title}}</h1>
+    <img src="{{p.photo}}" alt='Story photo'/>
     <h4>{{p.body}}</h4>
-    <!-- <h2>{{postedOn}}</h2> -->
-    <img ng-src="{{p.photo}}" alt='Story photo'/>
-    <h4>{{prop.body}}</h4>
-     <!-- <p>{{createBy}}</p> -->
-    <!-- <h2>{{tags}}</h2> -->
+     <p>{{p.createBy}}</p>
+    <h2>{{p.tags}}</h2>
+    <h2>{{p.postedOn}}</h2>
+    <!-- <h4>{{p.body}}</h4> -->
   </div>
 
   <div id='Comments'>
