@@ -6,14 +6,14 @@ var Family = mongoose.model('Family');
 var Story = mongoose.model('Story');
 var passport = require('passport');
 
-router.post('/add', function(req, res, next) {
-  console.log('hi there');
+router.post('/', function(req, res, next) {
   var story = new Story(req.body);
-  user.setPassword(req.body.password);
-  user.save(function(err, result) {
+  console.log('hi there');
+  // user.setPassword(req.body.password);
+  story.save(function(err, result) {
     if(err) return next(err);
     if(!result) return next("There was an issue registering that user.");
-    res.send(result.createToken());
+    res.send(result);
   });
 });
 
