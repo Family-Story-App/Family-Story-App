@@ -22,7 +22,8 @@
 			UserFactory.registerUser(vm.user).then(function() {
 				$state.go('Home');
 			});
-		}; 
+		};
+		
 		vm.loginUser = function(){
 			console.log('login');
 			UserFactory.loginUser(vm.user).then(function(){
