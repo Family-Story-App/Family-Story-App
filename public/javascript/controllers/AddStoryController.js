@@ -8,6 +8,19 @@
 
 		var vm = this;
 		vm.title = 'Welcome to our App!';
+		vm.ShowForm = false;
+		vm.story = {};
+
+		vm.addStory = function(){
+			HomeFactory.createStory(vm.story).then(function(res){
+				$state.go('Story');
+				vm.story = res;
+			});
+
+		};
+
+
+
 
 
 	}
