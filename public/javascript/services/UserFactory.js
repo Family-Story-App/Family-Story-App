@@ -28,7 +28,6 @@
         });
         return q.promise;
       };
-
       o.loginUser = function(user) {
         console.log("Second stop of DF journey");
         var q = $q.defer();
@@ -36,7 +35,7 @@
           console.log("Fifth stop");
           setToken(res.data); //puts the token on localStorage
           setUser();
-          var user = o.getUser();
+          var user = getUser();
           o.status.username = user.username;
           o.status._id = user._id;
           q.resolve(res.data);
