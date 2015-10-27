@@ -3,7 +3,7 @@ var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 
 var StorySchema = new mongoose.Schema({
-    Title: String,
+    title: String,
     body: String,
     photo: String,
     tags: String,
