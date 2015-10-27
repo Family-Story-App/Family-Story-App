@@ -19,7 +19,7 @@
 	                Written by:<a ui-sref=""><i>{{s.createBy}}</i></a><br>
 	            </div>
 	            <p>
-	              {{s.body| characters:50}}
+	              {{s.body| limitTo:50}}
 	            </p>
 	            <div layout="row">
 	              <div  >

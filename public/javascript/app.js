@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-	angular.module('app', ['ui.router', 'ngMaterial','truncate'])
+	angular.module('app', ['ui.router', 'ngMaterial'])
 	.config(Config);
 	function Config($stateProvider, $urlRouterProvider, $httpProvider) {
 		$stateProvider.state('Home',{
