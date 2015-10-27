@@ -1,8 +1,35 @@
 <div ng-contoller='StoryController as vm'>
 
 <!--
-display form to edit page
+display form to edit Story page
  -->
+<form>
+<!-- label -->
+<!-- input -->
+  <h1 style="text-align:center"> Edit Story </h1>
+  <md-input-container>
+    <label style="text-align:center">Title</label>
+    <input type="text" ng-model="vm.story.title">
+  </md-input-container>
+  <md-input-container>
+    <label style="text-align:center">Photos</label>
+    <img src="http://www.gettyimages.co.uk/gi-resources/images/Homepage/Category-Creative/UK/UK_Creative_462809583.jpg" alt="Story Image">
+  </md-input-container>
+  <md-input-container>
+    <label style="text-align:center">Tags</label>
+     <md-chips style="text-align:center" ng-model="vm.storyTag">
+        <input type="text" placeholder="Enter a Tag">
+      </md-chips>
+  </md-input-container>
+  <md-input-container>
+    <label style="text-align:center">Body</label>
+    <textarea ng-model="vm.story.body"></textarea>
+  </md-input-container>
+  <div style="text-align:center">
+  <md-button class="md-raised md-primary">Submit</md-button>
+  <md-button class="md-raised md-warn">Cancel</md-button>
+</div>
+</form>
 
 
 </div>
