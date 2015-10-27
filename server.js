@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 require('./models/Family');
 require('./models/Story');
 require('./models/User');
+require('./config/passport');
 mongoose.connect('mongodb://localhost/FamilyStory');
 // mongoose.connect(process.env.MONGO_STRING);
 
