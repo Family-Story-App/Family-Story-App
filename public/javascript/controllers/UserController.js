@@ -5,9 +5,10 @@
 	'use strict';
 	angular.module('app')
 	.controller('UserController', UserController);
-	function UserController(HomeFactory, $stateParams, $state) {
+	function UserController(UserFactory, $stateParams, $state) {
 
 		var vm = this;
+		vm.user = {};
 //if(vm.user.photo === null){
 //vm.user.photo = "genericphotourl"
 //}
