@@ -1,33 +1,47 @@
 <div ng-contoller='FamilyController as vm'>
-<!--
-view for edit family and edit story on family profile page
+<!--view for edit family and edit story on family profile page
 join family button
 family photo
 showing all family members (possible links to personal profile)
 show all story w/dates
-delete family button
+delete family button-->
 
--->
+    <!-- Page functions -->
 <div style="text-align:center">
 <md-button class="md-raised md-primary">Edit Family Profile</md-button>
 <md-button class="md-raised md-primary">Edit A Story</md-button>
 <md-button class="md-raised md-warn">Join A Family</md-button>
 </div>
 
+    <!-- Heading -->
 <div style="text-align:center">
-  <h1>The {{vm.family}} Family Story</h1>
+  <h1>The {{vm.family.familyName}} Family Story</h1>
 </div>
 
+    <!-- Top Level display of family photo and members -->
 <div layout="row" layout-wrap>
   <div style="background-color:lightblue;"flex="40">
-    [Family Photo]
-    <img src='#' alt='family profile picture'
+    [Family Photo]<br>
+    <img src='#' alt='family profile picture'><br>
+    <div>{{vm.family.origin}}</div>
   </div>
   <div style="background-color:lightgreen;" flex="60">
-    [Family Members]
+    [Family Members]<br>
+    <
+    <div>{{vm.family.image}}</div>
+    <h4><a href='#'>{{vm.family.memberName}}</a></h4>
   </div>
 </div>
 
+    <!-- Display Family Stories -->
+<div>
+  <h5>{{vm.familyStories}}<h5>
+</div>
+
+<!-- Delete Family Button -->
+<div>
+  <md-button class="md-raised md-warn">Delete Family</md-button>
+</div>
 
 
 </div>
