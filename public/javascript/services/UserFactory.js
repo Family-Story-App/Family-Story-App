@@ -82,7 +82,7 @@
         return decodeURIComponent(escape(window.atob(output))); //polifyll https://github.com/davidchambers/Base64.js
       }
 
-      o.getUser = function() {
+      function getUser() {
         return JSON.parse(urlBase64Decode(getToken().split('.')[1]));
       };
 

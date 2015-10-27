@@ -12,5 +12,9 @@
 //vm.user.photo = "genericphotourl"
 //}
 
+
+
+
+
 	}
 })();
