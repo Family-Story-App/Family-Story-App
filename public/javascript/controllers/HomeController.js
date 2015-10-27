@@ -4,7 +4,7 @@
 	'use strict';
 	angular.module('app')
 	.controller('HomeController', HomeController);
-	function HomeController($state) {
+	function HomeController(HomeFactory,$state) {
 
 		var vm = this;
 		HomeFactory.getStories().then(function(res){
