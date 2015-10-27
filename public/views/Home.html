@@ -2,7 +2,7 @@
 	<div flex-offset="70">
 		<md-content class="md-padding" >
 			<md-input-container>
-      <input ng-model="searchText" placeholder="Search...">
+      <input id="searchTest" ng-model="searchText" placeholder="Search...">
     </md-input-container><br>
 		</md-content  >
 	</div>
@@ -19,7 +19,7 @@
 	                Written by:<a ui-sref=""><i>{{s.createBy}}</i></a><br>
 	            </div>
 	            <p>
-	              {{s.body| characters:50}}
+	              {{s.body| limitTo:50}}
 	            </p>
 	            <div layout="row">
 	              <div  >

@@ -9,6 +9,26 @@ photo
 Add new members
 
  -->
-
+  <form ng-submit="vm.editFamily()">
+    <md-content >
+      <md-input-container>
+        <label>Family Name</label>
+        <input ng-model="vm.user.family.familyName">
+      </md-input-container><br>
+      <md-input-container>
+        <label>Origin</label>
+        <input ng-model="vm.user.family.origin" >
+      </md-input-container><br>
+      <md-input-container>
+        <label>Photo</label>
+        <textarea ng-model="vm.user.family.photo" ></textarea>
+      </md-input-container><br>
+      <md-input-container>
+        <label>Password</label>
+        <input ng-model="vm.user.family.password" >
+      </md-input-container><br>
+      <md-button type="submit">Submit</md-button>
+    </md-content>
+  </form>
 
 </div>

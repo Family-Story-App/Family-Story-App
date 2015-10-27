@@ -4,10 +4,14 @@
 	'use strict';
 	angular.module('app')
 	.controller('HomeController', HomeController);
-	function HomeController($state) {
-
+	function HomeController($state, HomeFactory) {
+		document.getElementById('searchTest').addEventListener("focus", function (event) {
+			console.log("Clicked");
+		})
 		var vm = this;
-		vm.title = 'Welcome to our App!';
+		// HomeFactory.getStories().then(function(res){
+		// 	vm.stories = res;
+		// });
 
 
 	}

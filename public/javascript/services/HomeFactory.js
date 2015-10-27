@@ -13,6 +13,15 @@
 			});
 			return q.promise;
 		};
+o.getStories = function(){
+	var q = $q.defer();
+	$http.get('/api/story')
+	.then(function(res){
+		q.resolve(res.data);
+	});
+	return q.promise;
+};
+
 
 
 

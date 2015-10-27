@@ -17,6 +17,17 @@ router.post('/story', function(req, res, next) {
   });
 });
 
+router.get('/', function(req,res,next){
+Story
+  .find({})
+    .select('title desc genre author img tags addedBy')
+    .populate('addedBy', 'username')
+    .exec(function(err,result){
+      if(err) return next(err);
+      res.send(result);
+    });
+});
+
 // router.post('/login', function(req, res, next) {
 //   passport.authenticate('local', function(err, user){
 //     if(err)return next(err);
