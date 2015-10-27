@@ -1,12 +1,30 @@
-<div ng-contoller='StoryDetailsController as vm'>
+<div ng-controller='StoryDetailsController as vm'>
 <!--
 display stories and pics
 diplay comments for story
 add comments
-link to family profile and author profile
+link to family profile and author profile -->
+<div style="text-align:center">
+  <h3>Family Stories</h3>
+</div>
+<div id='Story'>
 
- -->
+  <div ng-repeat='p in vm.test' style="text-align:center">
+    <h1>{{p.title}}</h1>
+    <h4>{{p.body}}</h4>
+    <!-- <h2>{{postedOn}}</h2> -->
+    <img ng-src="{{p.photo}}" alt='Story photo'/>
+    <h4>{{prop.body}}</h4>
+     <!-- <p>{{createBy}}</p> -->
+    <!-- <h2>{{tags}}</h2> -->
+  </div>
 
+  <div id='Comments'>
+    <h2>{{comments.commenter}}</h2>
+    <h2>{{comments.body}}</h2>
+    <h2>{{comments.postedOn}}</h2>
+  </div>
+</div>
 
 
 
