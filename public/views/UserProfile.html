@@ -13,7 +13,7 @@ ADD DEFAULT PIC FOR STORY IF USER DOESNT UPLOAD ONE
  -->
 <div class="profile-header" layout="row">
   <div flex-offset="45">
-    <img ng-src="vm.user.photo" alt="" />
+    <!-- <img ng-src="vm.user.photo" alt="" /> -->
   </div>
 </div>
 
@@ -26,31 +26,36 @@ ADD DEFAULT PIC FOR STORY IF USER DOESNT UPLOAD ONE
 <div layout="row">
   <div flex="80" class="story-box">
     <h2>My Stories</h2>
-    <div ng-repeat="s in vm.user.stories track by $index">
+    <div ng-repeat="s in vm.userStory.story track by $index">
       <md-card>
-        <a ui-sref="State({id: s[$index]._id})"><img ng-src="{{s[$index].photo}}" class="md-card-image" alt="{{s[$index].title}}" title="{{s[$index].title}}"></a>
+        <a ui-sref="Story({id: s._id})"><img ng-src="{{s.photo}}" class="md-card-image" alt="{{s.title}}" title="{{s.title}}"></a>
         <md-card-content>
           <div layout="row">
-              <h2 class="md-title"><a ui-sref="State({id: s[$index]._id})">{{s.title}}</a></h2>
+              <h2 class="md-title"><a ui-sref="Story({id: s._id})">{{s.title}}</a></h2>
           </div>
           <div layout="row">
-              Written by:<a ui-sref=""><i>{{s[$index].createBy}}</i></a><br>
+              Written by:<a ui-sref=""><i>{{s.createBy}}</i></a><br>
           </div>
           <p>
-            {{s[$index].body| characters:25}}
+            {{s.body}}
           </p>
-          </div>
         </md-card-content>
         <div class="md-actions" layout="row" layout-align="end center">
-          <md-button ui-sref="Edit({id: s[$index]._id})">Edit</md-button>
-          <md-button ng-click="vm.delete(s[$index])">Delete</md-button>
+          <md-button ui-sref="Edit({id: s._id})">Edit</md-button>
+          <md-button ng-click="vm.delete(s)">Delete</md-button>
       </div>
-      </md-card>
+    </md-card>
+    </div>
     </div>
     <div flex class="family-box">
       <h2>My Family</h2>
-        <div ng-repeat="f in vm.user.family track by $index">
-          <h2><a ui-sref="Family({id: f[$index]._id})" ng-click="familyShow">{{f[$index].familyName}}</a></h2>
+        <div ng-repeat="f in vm.userFam.family track by $index">
+          <h2><a ui-sref="Family({id: f[$index]._id})" ng-click="familyShow">{{f.familyName}}</a></h2>
+          <!-- <h2><a ui-sref="Family({id: f[$index]._id})" ng-click="familyShow">{{f}}</a></h2> -->
+          <!-- <h2><a ui-sref="Family({id: f[$index]._id})" ng-click="familyShow">{{f.family[0]}}</a></h2>
+          <h2><a ui-sref="Family({id: f[$index]._id})" ng-click="familyShow">{{f.family[1]}}</a></h2> -->
+          <!-- <h2><a ui-sref="Family({id: f[$index]._id})" ng-click="familyShow">{{f}}</a></h2> -->
+          <!-- <h2><a ui-sref="Family({id: f.family[$index]._id})" ng-click="familyShow">{{f.family[$index]}}</a></h2> -->
           <div ng-show="familyShow">
 
           </div>

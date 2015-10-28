@@ -28,7 +28,7 @@
 			url: '/family/:familyId',
 			templateUrl: 'views/Family.html'
 		}).state('Profile',{
-			url: '/profile/:profileId',
+			url: '/profile/:id',
 			templateUrl: 'views/UserProfile.html'
 		});
 		$urlRouterProvider.otherwise('/');

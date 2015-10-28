@@ -14,6 +14,7 @@ var FamilySchema = new mongoose.Schema({
    {type: mongoose.Schema.Types.ObjectId, ref: 'Story'}
  ],
   members:[{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+
 });
 
 mongoose.model('Family', FamilySchema);

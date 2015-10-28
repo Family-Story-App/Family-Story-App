@@ -21,11 +21,26 @@ Family.findOne({_id:id}, function(err,result){
   });
 });
 
+router.put('/:id', auth,function(req,res,next){
+  Family.update({_id: req.params.id},req.body,
+  function(err,result){
+    // console.log(req.body + "req.body");
+    // console.log(req.params.id + "reqparams.id");
+  if(err) return next(err);
+  if(!result) return next("Could not create the object. Please check all fields.");
+  // console.log(result);
+  res.send(result);
+  });
+});
+
+// router.get('/', function(req,res,next){
+//   Family.$where('')
+// });
 
 
 router.post('/', function(req,res,next){
   var family = new Family(req.body);
-  console.log(req.body);
+  // console.log(req.body);
   // family.addedBy = req.body._id;
   family.deleted = null;
   family.save(function(err, result) {

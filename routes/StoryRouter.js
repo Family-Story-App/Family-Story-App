@@ -6,24 +6,25 @@ var Family = mongoose.model('Family');
 var Story = mongoose.model('Story');
 var passport = require('passport');
 
-router.post('/add', function(req, res, next) {
-  console.log('hi there');
+router.post('/', function(req, res, next) {
   var story = new Story(req.body);
-  user.setPassword(req.body.password);
-  user.save(function(err, result) {
+  console.log('hi there');
+  // user.setPassword(req.body.password);
+  story.save(function(err, result) {
     if(err) return next(err);
     if(!result) return next("There was an issue registering that user.");
-    res.send(result.createToken());
+    res.send(result);
   });
 });
 
 router.get('/', function(req,res,next){
 Story
   .find({})
-    .select('title desc genre author img tags addedBy')
-    .populate('addedBy', 'username')
+    // .select('title body createBy photo tags addedBy')
+    // .populate('createBy', 'username')
     .exec(function(err,result){
       if(err) return next(err);
+      console.log(result);
       res.send(result);
     });
 });

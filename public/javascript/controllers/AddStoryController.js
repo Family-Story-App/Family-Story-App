@@ -4,22 +4,21 @@
 	'use strict';
 	angular.module('app')
 	.controller('AddStoryController', AddStoryController);
-	function AddStoryController($state,HomeFactory) {
 
+	function AddStoryController($state,UserFactory) {
 		var vm = this;
-		vm.title = 'Welcome to our App!';
-		vm.ShowForm = false;
-		vm.story = {};
-		vm.Story = [];
+
+		vm.newStory = {};
+		vm.status = UserFactory.status;
 
 
-
-		console.log('Add Story Control');
-	vm.AddStory = function(){
-		HomeFactory.createStory(vm.story).then(function(res){
-			$state.go('Story');
-		});
+vm.addStory = function(){
+	UserFactory.addStory(vm.newStory, vm.status._id).then(function(res){
+		vm.story = res;
+	$state.go('Home');
+});
 	};
+
 
 
 

@@ -25,19 +25,70 @@ User.findOne({_id:id}, function(err,result){
 
 router.post('/:id/add_family', auth,function(req,res,next){
 var fam = new Family(req.body);
+// console.log(fam);
 fam.save(function(err,result){
-  console.log(fam._id);
-  console.log(User);
-  User.update({_id: req.user._id}, {$push: {family: fam._id}}, function (err, result) {
+  // console.log(fam._id);
+  // console.log(User);
+  // console.log(req.body.familyName);
+  User.update({_id: req.user.id}, {$push: {family: fam}},
+    function (err, result) {
   // if (err) res.status(500).send({err: "Error updating"});
   // if(!result) res.status(500).send({err: "Error updating"});
-  console.log(fam);
+  // console.log(fam);
   res.send(result);
     });
   });
 });
 
 
+
+router.post('/:id/add_story', auth,function(req,res,next){
+var astory = new Story(req.body);
+// astory.createBy = req.payload.username;
+console.log(astory , " a story");
+
+astory.save(function(err,result){
+  User.update({_id: req.user.id}, {$push: {story: astory}},
+    function (err, result) {
+  res.send(result);
+    });
+  });
+});
+
+
+
+//Get a ALL STORIES ASSOCIATED WITH A USER (in story array)
+router.get('/:id/story', function(req,res,next){
+  console.log("HELLO!");
+// console.log(req.payload._id);
+User
+  .findOne({_id: req.user.id},'story')
+    .populate('story','title body photo createBy')
+    .exec(function(err,result){
+      if(err) return next(err);
+      if(!result) return next("There was an issue posting the story");
+      // console.log(req.payload.username);
+
+      res.send(result);
+    });
+});
+
+
+//Get a ALL Families ASSOCIATED WITH A USER (in family array)
+router.get('/:id/family', function(req,res,next){
+  console.log("HELLO!");
+// console.log(req.payload._id);
+User
+  .findOne({_id: req.user.id},'family')
+    .populate('family','familyName')
+    .exec(function(err,result){
+      if(err) return next(err);
+      if(!result) return next("There was an issue posting the afamily");
+      // console.log(req.payload.username);
+
+      res.send(result);
+    });
+});
 
 router.post('/register', function(req, res, next) {
   console.log('hi there');

@@ -14,7 +14,7 @@
 
 vm.addFamily = function(){
 	// console.log("about to go to factory");
-	console.log(vm.status);
+	// console.log(vm.status);
 	UserFactory.addFamily(vm.newFamily, vm.status._id).then(function(res){
 		vm.family = res;
 		// vm.family._id = $stateParams.familyId;
