@@ -25,6 +25,19 @@ console.log('get storys');
 	});
 	return q.promise;
 };
+o.getStoryById = function(id){
+	var q = $q.defer();
+	$http.post('/api/story/:id/'+ id, getAuth()).then(function(res){
+		q.resolve(res.data);
+	});
+	return q.promise;
+};
+function getAuth() {
+		return {
+			headers: {
+				Authorization: "Bearer " + localStorage.getItem('token')
+			}
+		};}
 
 //Functions regarding Families
 o.addFamily = function(family){

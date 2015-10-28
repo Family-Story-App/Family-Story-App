@@ -16,13 +16,35 @@ link to family profile and author profile -->
      <p>{{p.createBy}}</p>
     <h2>{{p.tags}}</h2>
     <h2>{{p.postedOn}}</h2>
+    <md-button class="md-raised md-warn" ng-show='vm.EditStory'ng-click='vm.EditCom()'>Edit Story</md-button>
+
     <!-- <h4>{{p.body}}</h4> -->
+
+          <!-- show Comment btn but hide comment line -->
+    <md-button class="md-raised md-primary" ng-show='!vm.Nocomment' ng-hide='vm.YesComment' ng-click='vm.ShowCom()'>Add Comments</md-button>
+
+            <!-- hide Comment btn but show comment line -->
+    <md-button class="md-raised md-warn" ng-show='vm.NoComment'ng-hide='!vm.YesComment' ng-click='vm.HideCom()'>Hide Comments</md-button>
+
+    <md-input-container ng-show='vm.showComment'>
+      <textarea placeholder="Add a comment..."ng-model="vm.comment.body"></textarea>
+    </md-input-container>
   </div>
 
   <div id='Comments'>
-    <h2>{{comments.commenter}}</h2>
-    <h2>{{comments.body}}</h2>
-    <h2>{{comments.postedOn}}</h2>
+    <form ng-submit=''>
+      <!-- <div ng-show=> -->
+        <!-- <md-input-container>
+          <label style="text-align:center">Comments</label>
+          <textarea ng-model="vm.story.title"></textarea>
+        </md-input-container> -->
+      <!-- </div> -->
+      <div >
+        <h2>{{comments.commenter}}</h2>
+        <h2>{{comments.body}}</h2>
+        <h2>{{comments.postedOn}}</h2>
+      </div>
+  </form>
   </div>
 </div>
 

@@ -6,6 +6,15 @@ var Family = mongoose.model('Family');
 var Story = mongoose.model('Story');
 var passport = require('passport');
 
+router.param('id', function(req, res, next, id) {
+  Story.findOne({_id: id}, function(err, result){
+    if(err) return next(err);
+    if(!result) return next('Could not find story by id of: '+ id);
+    res.send(results);
+    next();
+  });
+});
+
 router.post('/', function(req, res, next) {
   var story = new Story(req.body);
   console.log('hi there');

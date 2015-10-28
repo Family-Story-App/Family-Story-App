@@ -11,22 +11,38 @@
 		// vm.title = 'Welcome to our App!';
 		vm.story = {};
 		vm.Story = [];
+		vm.showComment = false;
+		vm.NoComment = false;
+		vm.YesComment = false;
 
-		vm.test = {
-			title: 'The Best Mom Ever',
-			photo: 'http://www.publicdomainpictures.net/pictures/20000/velka/mother-kissing-baby-87129433012057t.jpg',
-			body: 'This is a picture of my dear mother Gloria and me twenty years ago!'
-		};
-		console.log(vm.test.photo);
+		if(!$stateParams.id) $state.go('Home');
+		HomeFactory.getStoryById($stateParams.id).then(function(res){
+			vm.story = res;
+		});
+
 
 		vm.showStory = function(){
-			HomeFactory.getStories().then(function(res){
-				console.log(res);
+			HomeFactory.getStories(vm.story, $stateParams.id).then(function(res){
+				for (var i = 0; i < Story.length; i++) {
+					if(Story[i]._id === vm.story){
+						return vm.story;
+					}
+				}
 				vm.story = res;
 			});
 		};
 vm.showStory();
 
+	vm.ShowCom = function(){
+		vm.showComment = true;
+		vm.NoComment = true;
+		vm.YesComment = true;
+	};
+	vm.HideCom = function(){
+		vm.showComment = false;
+		vm.NoComment = false;
+		vm.YesComment = false;
+	};
 
 	}
 })();
