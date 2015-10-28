@@ -15,7 +15,8 @@ var UserSchema = new mongoose.Schema({
    {type: mongoose.Schema.Types.ObjectId, ref: 'Story'}
  ],
   img: String,
-  body: String
+  body: String,
+  fName:{type: String, ref: 'Family'},
 });
 
 UserSchema.methods.setPassword = function(password) {

@@ -6,6 +6,7 @@
       var o = {};
       o.status = {};
 
+
       if(getToken()){
         setUser();
       }
@@ -86,6 +87,49 @@
       };
 
 
+o.addFamily = function(family,id){
+var q = $q.defer();
+$http.post('/api/user/' +id+ '/add_family', family)
+.then(function(res){
+q.resolve(res.data);
+});
+  return q.promise;
+      };
+
+o.addStory = function(story,id){
+var q = $q.defer();
+console.log(story + 'story');
+console.log(id + 'id');
+$http.post('/api/user/' +id+ '/add_story', story)
+.then(function(res){
+q.resolve(res.data);
+ });
+return q.promise;
+};
+
+o.getUserStories = function(id){
+  var q = $q.defer();
+  $http.get('/api/user/'+id+'/story')
+  .then(function(res){
+    q.resolve(res.data);
+    // console.log(res.data + 'res.data from factory being sent back to controller');
+  });
+  console.log(q.promise + "q.promise from factory");
+  return q.promise;
+};
+
+o.getUserFamily = function(id){
+  // console.log("just got to factory about to go to route");
+  var q = $q.defer();
+  // console.log(user._id + " user._id in factory");
+  $http.get('/api/user/'+id+'/family')
+  .then(function(res){
+    q.resolve(res.data);
+    // console.log(res.data + 'res.data from factory being sent back to controller');
+  });
+  console.log(q.promise + "q.promise from factory");
+  return q.promise;
+};
 
       return o;
   }

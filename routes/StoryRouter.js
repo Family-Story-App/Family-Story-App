@@ -52,8 +52,16 @@ router.post('/', function(req, res, next) {
 
   // Getting all the stories
 router.get('/', function(req,res,next){
+<<<<<<< HEAD
   console.log('other GET req');
 Story  .find({})
+=======
+Story
+  .find({})
+    // .select('title body createBy photo tags addedBy')
+    // .populate('createBy', 'username')
+    .populate('createdBy', 'username')
+>>>>>>> 4773a59b2557fcb0473419766c7e13d22dc9f952
     .exec(function(err,result){
       if(err) return next(err);
       // console.log(result);

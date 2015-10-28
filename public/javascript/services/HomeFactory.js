@@ -20,15 +20,16 @@
 
 		// Shows stories on home page
 o.getStories = function(){
-console.log('get storys');
 	var q = $q.defer();
 	$http.get('/api/story').then(function(res){
-		console.log("gets stuff");
 		q.resolve(res.data);
 	});
 	return q.promise;
 };
 
+
+o.editStory = function(){
+};
 o.getStoryById = function(id){
 	console.log('ajax call');
 	var q = $q.defer();
@@ -91,12 +92,31 @@ o.addFamily = function(family){
  return q.promise;
 };
 
+//Functions regarding Families
+// o.addFamily = function(family){
+// 	var q = $q.defer();
+// 	$http.post('/api/family/', family)
+// 	.then(function(res){
+// 	q.resolve(res.data);
+// 	});
+//  return q.promise;
+// };
+
 o.getFamilyById = function(id){
 	var q = $q.defer();
 	$http.get('/api/family/' + id)
 	.then(function(res){
 		q.resolve(res.data);
 	});
+};
+
+o.editFamily = function(family){
+	var q = $q.defer();
+	$http.put('/api/family/'+family._id,family)
+	.then(function(res){
+        q.resolve(res.data);
+      });
+      return q.promise;
 };
 
 
