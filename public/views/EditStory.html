@@ -3,10 +3,10 @@
 <!--
 display form to edit Story page
  -->
+  <h1 style="text-align:center"> Edit Story </h1>
 
     <!-- Form used to edit a Story -->
-<form>
-  <h1 style="text-align:center"> Edit Story </h1>
+<form ng-init='edittedStory = vm.getCopy(s);'class="well container" ng-submit='vm.editStory(s._id, edittedStory);'>
   <md-input-container>
     <label style="text-align:center">Title</label>
     <input type="text" ng-model="vm.Story.title">
