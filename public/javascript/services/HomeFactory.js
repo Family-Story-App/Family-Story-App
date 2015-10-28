@@ -26,11 +26,6 @@ o.getStories = function(){
 	return q.promise;
 };
 
-<<<<<<< HEAD
-
-o.editStory = function(){
-
-=======
 o.getStoryById = function(id){
 	var q = $q.defer();
 	$http.get('/api/story/'+ id).then(function(res){
@@ -70,7 +65,6 @@ o.addFamily = function(family){
 	q.resolve(res.data);
 	});
  return q.promise;
->>>>>>> 5bc32e9393dc9e6ec001e6157a205b7a608d0dbc
 };
 
 //Functions regarding Families

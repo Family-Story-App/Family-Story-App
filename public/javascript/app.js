@@ -10,7 +10,7 @@
 			url: '/login',
 			templateUrl: 'views/Login-Reg.html',
 		}).state('EditStory',{
-			url: '/edit_story/:id',
+			url: '/edit_story/:StoryId',
 			templateUrl: 'views/EditStory.html',
 		}).state('AddStory',{
 			url: '/add_story',

@@ -41,7 +41,7 @@ ADD DEFAULT PIC FOR STORY IF USER DOESNT UPLOAD ONE
           </p>
         </md-card-content>
         <div class="md-actions" layout="row" layout-align="end center">
-          <md-button ui-sref="Edit({id: s._id})">Edit</md-button>
+          <md-button ui-sref="EditStory({StoryId: s._id})">Edit</md-button>
           <md-button ng-click="vm.delete(s)">Delete</md-button>
       </div>
     </md-card>
