@@ -6,6 +6,7 @@
 
 		var o = {};
 
+
 			// creates story from add story state
 		o.createStory = function(story){
 			console.log('making story in factory');
@@ -26,23 +27,27 @@ o.getStories = function(){
 	return q.promise;
 };
 
+
 o.getStoryById = function(id){
+	console.log('ajax call');
 	var q = $q.defer();
 	$http.get('/api/story/'+ id).then(function(res){
+		console.log('made it back');
 		q.resolve(res.data);
 	});
 	return q.promise;
 };
 
-
-o.getStory = function(storyId ){
-console.log('Getting the id from factory');
-	var q = $q.defer();
-	$http.get('/api/story/' + storyId).then(function(res){
-		q.resolve();
-	});
-	return q.promise;
-};
+// 		// dup  ^
+// o.getStory = function(storyId ){
+// console.log('Getting the id from factory');
+// 	var q = $q.defer();
+// 	$http.get('/api/story/' + storyId).then(function(res){
+// 		q.resolve();
+// 	});
+// 	return q.promise;
+// };
+// ---------------------------------------------
 o.putStory = function(story){
 	var q = $q.defer();
 	$http.put('/api/story/' + story.id, story).then(function(){
@@ -50,12 +55,30 @@ o.putStory = function(story){
 	});
 	return q.promise;
 };
-function getAuth() {
-		return {
-			headers: {
-				Authorization: "Bearer " + localStorage.getItem('token')
-			}
-		};}
+
+o.postCom = function(comment){
+	var q = $q.defer();
+	// console.log(storyId);
+	console.log(comment);
+	console.log('post here');
+	$http.post('/api/story/'+ comment).then(function(res){
+		q.resolve(res.data);
+		console.log("I'm posted");
+	});
+	return q.promise;
+};
+
+
+o.displayCom = function(){
+	console.log('display here');
+var q = $q.defer();
+	$http.get('/api/story').then(function(res){
+		q.resolve(res.data);
+		console.log("I'm displayed");
+	});
+	return q.promise;
+};
+
 
 //Functions regarding Families
 o.addFamily = function(family){
