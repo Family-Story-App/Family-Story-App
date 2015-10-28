@@ -6,12 +6,12 @@ var Family = mongoose.model('Family');
 var Story = mongoose.model('Story');
 var passport = require('passport');
 
-router.param('id', function(req, res, next, id) {
-  Story.findOne({_id: id}, function(err, result){
+router.get('/:id', function(req, res, next){
+  Story.findOne({_id: req.params.id}, function(err, result){
     if(err) return next(err);
-    if(!result) return next('Could not find story by id of: '+ id);
-    res.send(results);
-    next();
+    if(!result) return next('Could not find story of id: ' + id);
+    res.send(result);
+    console.log(result);
   });
 });
 
@@ -29,22 +29,21 @@ router.post('/', function(req, res, next) {
 router.get('/', function(req,res,next){
 Story
   .find({})
-    // .select('title desc genre author img tags addedBy')
-    // .populate('addedBy', 'username')
+    .populate('createdBy', 'username')
     .exec(function(err,result){
       if(err) return next(err);
-      console.log(result);
+      // console.log(result);
       res.send(result);
     });
 });
 
-// router.post('/login', function(req, res, next) {
-//   passport.authenticate('local', function(err, user){
-//     if(err)return next(err);
-//     res.send(user.createToken());
-//   })(req, res, next);
-//
-// });
+router.put('/', function(req, res, next){
+  Story.update({_id: req.body.IDofStoryToEdit}, req.body.edittedStory, function(err, result){
+    if(err) return next(err);
+    if(!result) return next(err);
+    res.send(result);
+  });
+});
 
 // router.post('/comment', function(req, res, next){
 //   console.log(req.body);

@@ -6,7 +6,7 @@
 
 		var o = {};
 
-
+			// creates story from add story state
 		o.createStory = function(story){
 			console.log('making story in factory');
 			var q = $q.defer();
@@ -16,6 +16,8 @@
 			});
 			return q.promise;
 		};
+
+		// Shows stories on home page
 o.getStories = function(){
 console.log('get storys');
 	var q = $q.defer();
@@ -25,10 +27,28 @@ console.log('get storys');
 	});
 	return q.promise;
 };
+
 o.getStoryById = function(id){
 	var q = $q.defer();
-	$http.post('/api/story/:id/'+ id, getAuth()).then(function(res){
+	$http.get('/api/story/'+ id).then(function(res){
 		q.resolve(res.data);
+	});
+	return q.promise;
+};
+
+
+o.getStory = function(storyId ){
+console.log('Getting the id from factory');
+	var q = $q.defer();
+	$http.get('/api/story/' + storyId).then(function(res){
+		q.resolve();
+	});
+	return q.promise;
+};
+o.putStory = function(story){
+	var q = $q.defer();
+	$http.put('/api/story/' + story.id, story).then(function(){
+		q.resolve();
 	});
 	return q.promise;
 };

@@ -1,24 +1,21 @@
 <div ng-controller='StoryDetailsController as vm'>
-<!--
-display stories and pics
-diplay comments for story
-add comments
+<!--display stories and pics
+diplay comments for storyadd comments
 link to family profile and author profile -->
+
 <div style="text-align:center">
   <h3>Family Stories</h3>
 </div>
 <div id='Story'>
 
-  <div ng-repeat='p in vm.story' style="text-align:center">
-    <h1>{{p.title}}</h1>
-    <img src="{{p.photo}}" alt='Story photo'/>
-    <h4>{{p.body}}</h4>
-     <p>{{p.createBy}}</p>
-    <h2>{{p.tags}}</h2>
-    <h2>{{p.postedOn}}</h2>
+    <h1>{{vm.astory.title}}</h1>
+    <img src="{{vm.astory.photo}}" alt='{{vm.astory.title}}'/>
+    <h4>{{vm.astory.body}}</h4>
+     <p>{{vm.astory.createBy}}</p>
+    <h2>{{vm.astory.tags}}</h2>
+    <h2>{{vm.astory.postedOn}}</h2>
     <md-button class="md-raised md-warn" ng-show='vm.EditStory'ng-click='vm.EditCom()'>Edit Story</md-button>
 
-    <!-- <h4>{{p.body}}</h4> -->
 
           <!-- show Comment btn but hide comment line -->
     <md-button class="md-raised md-primary" ng-show='!vm.Nocomment' ng-hide='vm.YesComment' ng-click='vm.ShowCom()'>Add Comments</md-button>
@@ -26,19 +23,16 @@ link to family profile and author profile -->
             <!-- hide Comment btn but show comment line -->
     <md-button class="md-raised md-warn" ng-show='vm.NoComment'ng-hide='!vm.YesComment' ng-click='vm.HideCom()'>Hide Comments</md-button>
 
+              <!-- Comments -->
     <md-input-container ng-show='vm.showComment'>
-      <textarea placeholder="Add a comment..."ng-model="vm.comment.body"></textarea>
+      <textarea placeholder="Add a comment..."ng-model="vm.comment.body"></textarea><br>
     </md-input-container>
-  </div>
+    <md-input-container ng-show='vm.showComment'>
+      <md-button class="md-raised md-warn" ng-click='vm.addCom()'>Submit</md-button>
+    </md-input-container>
 
   <div id='Comments'>
     <form ng-submit=''>
-      <!-- <div ng-show=> -->
-        <!-- <md-input-container>
-          <label style="text-align:center">Comments</label>
-          <textarea ng-model="vm.story.title"></textarea>
-        </md-input-container> -->
-      <!-- </div> -->
       <div >
         <h2>{{comments.commenter}}</h2>
         <h2>{{comments.body}}</h2>

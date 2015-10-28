@@ -9,7 +9,7 @@
 
 		var vm = this;
 		// vm.title = 'Welcome to our App!';
-		vm.story = {};
+		vm.astory = {};
 		vm.Story = [];
 		vm.showComment = false;
 		vm.NoComment = false;
@@ -17,27 +17,23 @@
 
 		if(!$stateParams.id) $state.go('Home');
 		HomeFactory.getStoryById($stateParams.id).then(function(res){
-			vm.story = res;
+			console.log(res);
+			vm.astory = res;
 		});
 
 
-		vm.showStory = function(){
-			HomeFactory.getStories(vm.story, $stateParams.id).then(function(res){
-				for (var i = 0; i < Story.length; i++) {
-					if(Story[i]._id === vm.story){
-						return vm.story;
-					}
-				}
-				vm.story = res;
-			});
-		};
-vm.showStory();
+	vm.addCom = function(){
+		HomeFactory.postCom().then(function(res){
+
+		});
+	};
 
 	vm.ShowCom = function(){
 		vm.showComment = true;
 		vm.NoComment = true;
 		vm.YesComment = true;
 	};
+
 	vm.HideCom = function(){
 		vm.showComment = false;
 		vm.NoComment = false;
