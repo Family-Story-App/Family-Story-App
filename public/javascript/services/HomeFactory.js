@@ -27,9 +27,11 @@ o.getStories = function(){
 	return q.promise;
 };
 
+o.removeStory = function(){
 
-o.editStory = function(){
 };
+
+
 o.getStoryById = function(id){
 	console.log('ajax call');
 	var q = $q.defer();
@@ -52,8 +54,8 @@ o.getStoryById = function(id){
 // ---------------------------------------------
 o.putStory = function(story){
 	var q = $q.defer();
-	$http.put('/api/story/' + story.id, story).then(function(){
-		q.resolve();
+	$http.put('/api/story/', story).then(function(res){
+		q.resolve(res.data);
 	});
 	return q.promise;
 };
@@ -63,7 +65,7 @@ o.postCom = function(comment){
 	// console.log(storyId);
 	console.log(comment);
 	console.log('post here');
-	$http.post('/api/story/'+ comment).then(function(res){
+	$http.post('/api/story/', comment).then(function(res){
 		q.resolve(res.data);
 		console.log("I'm posted");
 	});

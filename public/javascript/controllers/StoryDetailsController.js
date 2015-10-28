@@ -14,7 +14,6 @@
 		vm.NoComment = false;
 		vm.YesComment = false;
 
-
  	console.log('running');
 		if(!$stateParams.id) $state.go('Home');
 		HomeFactory.getStoryById($stateParams.id).then(function(res){
@@ -22,9 +21,16 @@
 			vm.astory = res;
 		});
 
-vm.EditStory = function(){
 
-};
+
+
+vm.editStory = function(){
+    HomeFactory.putStory(vm.story).then(function(){
+		console.log('ok');
+    });
+  };
+
+
 
 	vm.addCom = function(){
 			console.log("adding comment");

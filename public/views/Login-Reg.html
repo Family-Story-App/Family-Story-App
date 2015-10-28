@@ -12,17 +12,17 @@ If add then redirct to form to add family then redirect to family profile
  <div ng-show="nav.isLogin">
    <form class="well container" ng-submit="nav.loginUser()">
      <h1 style="color:red;text-align:center;font-family:Sans Serif">Sign In</h1>
-
-     <label style="font-family:Ariel;">Username:</label>
+  <md-input-container>
      <input class="form-control" required placeholder="Username..." ng-model="nav.user.username">
-
-     <label style="font-family:Ariel;">Password:</label>
+  </md-input-container>
+    <md-input-container>
      <input type="password" class="form-control" required placeholder="Password..." ng-model="nav.user.password">
-
+  </md-input-container>
+    <md-input-container>
      <div style="text-align: center">
        <button type='button' ng-click="nav.isLogin = false;" class="btn btn-info">Register</a>
        <button type="submit" class="btn btn-primary" >Login</button><br><br>
-       <a ui-sref="Landing" style="color:red">Exit</a>
+   </md-input-container>
      </div>
    </form>
  </div>
@@ -53,7 +53,9 @@ If add then redirct to form to add family then redirect to family profile
  <md-input-container>
      <label style="font-family:Ariel;">Confirm Password</label>
      <input type="password" placeholder="Confirm Password..." ng-model="nav.user.confirmPassword" required>
-   </md-input-container>
+   </md-input-container><br>
+
+   <!-- <button ng-click='nav.isLogin'style="color:red">Exit</button> -->
  </md-content>
 
 
@@ -64,6 +66,8 @@ If add then redirct to form to add family then redirect to family profile
        <!-- <button type="button" ng-click="nav.isLogin = true;" class="btn btn-primary">Login</button> -->
        <button type="submit" class="btn btn-info">Submit</button>
      </div>
+
+
    </form>
  </div>
 
