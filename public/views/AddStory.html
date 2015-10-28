@@ -9,9 +9,9 @@ form located on Family profile, personal profile and Homepage
    <!-- <form ng-submit="submit()"> -->
      <p>Selected A Family: <span class="radioValue">{{ data.group1 }}</span> </p>
      <md-radio-group ng-model="data.group1">
-       <md-radio-button value="Apple" class="md-primary">Apple</md-radio-button>
-       <md-radio-button value="Banana"> Banana </md-radio-button>
-       <md-radio-button value="Mango">Mango</md-radio-button>
+       <div ng-repeat"t in vm.status.family">
+         <md-radio-button  value="{{t}}" class="md-primary">{{t.familyName}}</md-radio-button>
+      </div>
      </md-radio-group>
    <!-- </form> -->
  </div>

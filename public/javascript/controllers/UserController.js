@@ -29,7 +29,9 @@ UserFactory.getUserFamily($stateParams.id).then(function(res){
 	vm.userFam = res;
 });
 // console.log(vm.userFam.family[0] + 'vm.userFam.family');
+vm.editStory = function(){
 
+};
 
 
 	}
