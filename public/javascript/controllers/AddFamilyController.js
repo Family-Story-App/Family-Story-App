@@ -4,15 +4,18 @@
 (function() {
 	'use strict';
 	angular.module('app')
-	.controller('FamilyController', FamilyController);
-	function FamilyController(HomeFactory, $state, $stateParams) {
+	.controller('AddFamilyController', AddFamilyController);
+	function AddFamilyController(UserFactory, $state, $stateParams) {
 
 		var vm = this;
 		vm.newFamily = {};
+		vm.status = UserFactory.status;
+
 
 vm.addFamily = function(){
 	// console.log("about to go to factory");
-	HomeFactory.addFamily(vm.newFamily).then(function(res){
+	console.log(vm.status);
+	UserFactory.addFamily(vm.newFamily, vm.status._id).then(function(res){
 		vm.family = res;
 		// vm.family._id = $stateParams.familyId;
 		// console.log(vm.family._id);

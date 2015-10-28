@@ -6,6 +6,7 @@
       var o = {};
       o.status = {};
 
+
       if(getToken()){
         setUser();
       }
@@ -83,6 +84,16 @@
 
       function getUser() {
         return JSON.parse(urlBase64Decode(getToken().split('.')[1]));
+      };
+
+
+o.addFamily = function(family,id){
+var q = $q.defer();
+$http.post('/api/user/' +id+ '/add_family', family)
+.then(function(res){
+q.resolve(res.data);
+});
+  return q.promise;
       };
 
 

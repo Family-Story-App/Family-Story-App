@@ -27,14 +27,14 @@ o.getStories = function(){
 };
 
 //Functions regarding Families
-o.addFamily = function(family){
-	var q = $q.defer();
-	$http.post('/api/family/', family)
-	.then(function(res){
-	q.resolve(res.data);
-	});
- return q.promise;
-};
+// o.addFamily = function(family){
+// 	var q = $q.defer();
+// 	$http.post('/api/family/', family)
+// 	.then(function(res){
+// 	q.resolve(res.data);
+// 	});
+//  return q.promise;
+// };
 
 o.getFamilyById = function(id){
 	var q = $q.defer();
