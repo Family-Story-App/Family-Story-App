@@ -15,9 +15,9 @@
         vm.story = res;
 	  });
 
-    vm.editStory = function(storyId, story){
-    HomeFactory.putStory({IDofStoryToEdit: storyId, edittedStory: story }).then(function(){
-			vm.edittedStory = null;
+    vm.editStory = function(){
+    HomeFactory.editStory(vm.story).then(function(){
+    
     $state.go('Home');
     });
   };

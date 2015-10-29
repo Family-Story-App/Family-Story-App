@@ -10,7 +10,12 @@
 
 		vm.newStory = {};
 		vm.status = UserFactory.status;
+		vm.user ={};
 
+UserFactory.getUserFamily(vm.status._id).then(function(res){
+	vm.user = res;
+	// console.log(vm.user.family);
+});
 
 vm.addStory = function(){
 	UserFactory.addStory(vm.newStory, vm.status._id).then(function(res){

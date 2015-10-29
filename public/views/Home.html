@@ -6,17 +6,17 @@
     </md-input-container><br>
 		</md-content  >
 	</div>
-	<div ng-repeat="s in vm.stories | filter:searchText" >
+	<div  >
 	    <md-content class="md-padding" >
-	      <div flex="35">
-	        <md-card>
+	      <div   layout="row" layout-wrap>
+	        <md-card ng-repeat="s in vm.stories | filter:searchText">
 	          <img ng-src="{{s.photo}}" class="md-card-image" alt="{{s.title}}" title="{{s.title}}">
 	          <md-card-content>
 	            <div layout="row">
 	                <h2 class="md-title">{{s.title}}</h2>
 	            </div>
 	            <div layout="row">
-	                Written by:<a ui-sref=""><i>{{s.createBy}}</i></a><br>
+	                Written by:<i>{{s.createBy}}</i><br>
 	            </div>
 	            <p>
 	              {{s.body}}
@@ -24,7 +24,7 @@
 	            <div layout="row">
 	              <div  >
 	                Posted in: {{s.tags}}<br>
-	                Family: <a ui-sref="Family({id: s.family._id})">{{s.family}}</a>
+	                <!-- Family: <a ui-sref="Family({id: s.family._id})">{{s.family}}</a> -->
 	              </div>
 	            </div>
 	          </md-card-content>

@@ -41,7 +41,7 @@ fam.save(function(err,result){
 });
 
 
-
+//add story and push story into family
 router.post('/:id/add_story', auth,function(req,res,next){
 var astory = new Story(req.body);
 // astory.createBy = req.payload.username;

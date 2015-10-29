@@ -15,7 +15,7 @@
 			<h1 class="md-toolbar-tools">Sidenav Right</h1>
 		</md-toolbar>
 		<md-content layout-padding>
-			<h3>Welcolme,<a ui-sref="UserProfile({id: nav.user._id})"> {{nav.user.name}}</a>!</h3>
+			<h3>Welcolme,<a ui-sref="UserProfile({id: nav.status._id})"> {{nav.status.username}}</a>!</h3>
 			<h3><a ui-sref="AddFamily"> Add a Family</a></h3>
 			<h3><a ng-click="joinFamily"> Join a Family</a></h3>
 			<div ng-show="joinFamily">
@@ -48,12 +48,12 @@
 	<script src="/javascript/services/UserFactory.js"></script>
 	<!-- Controllers -->
 	<script src="/javascript/controllers/HomeController.js"></script>
-	<script src="/javascript/controllers/FamilyController.js"></script>
 	<script src="/javascript/controllers/EditFamilyController.js"></script>
 	<script src="/javascript/controllers/EditStoryController.js"></script>
 	<script src="/javascript/controllers/AddFamilyController.js"></script>
 	<script src="/javascript/controllers/StoryController.js"></script>
 	<script src="/javascript/controllers/StoryDetailsController.js"></script>
+	<script src="/javascript/controllers/EditStoryController.js"></script>
 	<script src="/javascript/controllers/GlobalController.js"></script>
 	<script src="/javascript/controllers/AddStoryController.js"></script>
 	<script src="/javascript/controllers/UserController.js"></script>

@@ -6,7 +6,7 @@
 	angular.module('app')
 	.controller('AddFamilyController', AddFamilyController);
 	function AddFamilyController(UserFactory, $state, $stateParams) {
-
+console.log("add controller going");
 		var vm = this;
 		vm.newFamily = {};
 		vm.status = UserFactory.status;
