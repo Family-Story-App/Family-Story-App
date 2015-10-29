@@ -5,7 +5,7 @@
 	angular.module('app')
 	.controller('AddStoryController', AddStoryController);
 
-	function AddStoryController($state,UserFactory) {
+	function AddStoryController($state,UserFactory,HomeFactory) {
 		var vm = this;
 
 		vm.newStory = {};
@@ -23,6 +23,13 @@ vm.addStory = function(){
 	$state.go('Home');
 });
 	};
+
+	vm.createStory = function(){
+		HomeFactory.createStory(vm.newStory, vm.status._id).then(function(res){
+			vm.story = res;
+		$state.go('Home');
+	});
+		};
 
 
 

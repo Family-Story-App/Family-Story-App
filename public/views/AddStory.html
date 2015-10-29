@@ -15,11 +15,15 @@ form located on Family profile, personal profile and Homepage
  <!-- NOTE: THIS FORM SHOULD BE HIDDEN (NG-SHOW) UNTIL FAMILY IS SELECTED AND LINKED!!!  Form used to edit a test -->
  <form ng-submit='vm.addStory()'>
    <h1 style="text-align:center"> Add A New test </h1>
-   <div ng-model="data.group1">
-     <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect">
-        <option ng-repeat="p in vm.user.family" value="{{option._id}}">{{p.familyName}}</option>
-    </select>
-  </div>
+  <md-input-container>
+      <label>Choose your Family</label>
+      <md-select ng-model="vm.newStory.family">
+        <md-option ng-repeat="p in vm.user.family track by $index" value="{{p.familyName}}">
+          {{p.familyName}}
+        </md-option>
+      </md-select>
+      Selected Family is: {{vm.newStory.family}}
+    </md-input-container>
    <md-input-container>
      <label style="text-align:center">Title</label>
      <input type="text" ng-model="vm.newStory.title">
@@ -35,6 +39,7 @@ form located on Family profile, personal profile and Homepage
    </md-input-container>
    <div style="text-align:center">
      <md-button class="md-raised md-primary" type='submit'>Submit</md-button>
+     <md-button class="md-raised md-primary" ng-click='vm.createStory()'>Submit2</md-button>
      <md-button class="md-raised md-warn" ui-serf='Home'>Cancel</md-button>
    </div>
  </form>

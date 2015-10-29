@@ -13,7 +13,7 @@ var auth = jwt({
 
     // sets router to search for objects with prop:id
 router.param('id', function(req, res, next, id){
-  console.log('blah blah');
+  // console.log('blah blah');
   Story.findOne({_id: req.params.id}, function(err, result){
     if(err) return next(err);
     if(!result) return next('Could not find story of id: ' + id);
@@ -54,23 +54,44 @@ router.put('/:id', auth,function(req,res,next){
  });
 
 
-  // Adding a new story
+ //Adding a new story
 router.post('/', function(req, res, next) {
-  var story = new Story(req.body);
-  console.log('hi there');
-  // user.setPassword(req.body.password);
-  story.save(function(err, result) {
-    if(err) return next(err);
-    if(!result) return next("There was an issue registering that user.");
-    res.send(result);
+  console.log(req.body.story, "line 59 sr");
+  console.log(req.body.id, "line 59 sr");
+  var astory = new Story(req.body.story);
+  // console.log(id, "line 49 user router");
+  // astory.createBy = req.payload.username;
+  // console.log(astory , " a story");
+  // astory.
+    astory.save(function(err,result){
+  // Family.findOne({familyName:req.body.family}, function(err,result){
+  //   if(err) return next(err);
+  //   if(!result) return next({err: "Couldnt find a user with that id"});
+  //
+  //   // req.user = result;
+  //   result.update({$push: {stories: astory}},
+  //     function(err,result){
+  //      if(err) return next(err);
+  //      if(!result) return next({err: "Couldnt find a user with that id"});
+  //   // next();
+  //   });
+    // console.log(req.user._id);
+  // console.log(req.body);
+
+
+    User.update({_id: req.body.id}, {$push: {story: astory}},
+      function (err, result) {
+    res.send();
+        });
+      // });
+    });
   });
-});
 
 
   // Getting all the stories
 router.get('/', function(req,res,next){
 
-console.log('other GET req');
+// console.log('other GET req');
 Story
   .find({})
     // .select('title body createBy photo tags addedBy')

@@ -13,9 +13,11 @@ var auth = jwt({
 });
 
 router.param('id', function(req,res,next,id){
+  console.log(id);
 User.findOne({_id:id}, function(err,result){
   if(err) return next(err);
   if(!result) return next({err: "Couldnt find a user with that id"});
+  // console.log(result);
   req.user = result;
   next();
   });
@@ -25,6 +27,7 @@ User.findOne({_id:id}, function(err,result){
 
 router.post('/:id/add_family', auth,function(req,res,next){
 var fam = new Family(req.body);
+fam.members.push(req.user.id);
 // console.log(fam);
 fam.save(function(err,result){
   // console.log(fam._id);
@@ -44,13 +47,29 @@ fam.save(function(err,result){
 //add story and push story into family
 router.post('/:id/add_story', auth,function(req,res,next){
 var astory = new Story(req.body);
+// console.log(id, "line 49 user router");
 // astory.createBy = req.payload.username;
-console.log(astory , " a story");
+// console.log(astory , " a story");
+// astory.
+Family.findOne({familyName:req.body.family}, function(err,result){
+  if(err) return next(err);
+  if(!result) return next({err: "Couldnt find a user with that id"});
 
+  // req.user = result;
+  result.update({$push: {stories: astory}},
+    function(err,result){
+     if(err) return next(err);
+     if(!result) return next({err: "Couldnt find a user with that id"});
+  // next();
+  });
+  console.log(req.user._id);
+console.log(req.body);
 astory.save(function(err,result){
-  User.update({_id: req.user.id}, {$push: {story: astory}},
+
+  User.update({_id: req.user._id}, {$push: {story: astory}},
     function (err, result) {
   res.send(result);
+      });
     });
   });
 });
@@ -59,7 +78,7 @@ astory.save(function(err,result){
 
 //Get a ALL STORIES ASSOCIATED WITH A USER (in story array)
 router.get('/:id/story', function(req,res,next){
-  console.log("HELLO!");
+  // console.log("HELLO!");
 // console.log(req.payload._id);
 User
   .findOne({_id: req.user.id},'story')

@@ -93,12 +93,13 @@ $http.post('/api/user/' +id+ '/add_family', family)
 .then(function(res){
 q.resolve(res.data);
 });
+// console.log(q.promise.family.id);
   return q.promise;
       };
 
 o.addStory = function(story,id){
 var q = $q.defer();
-console.log(story + 'story');
+// console.log(story + 'story');
 console.log(id + 'id');
 $http.post('/api/user/' +id+ '/add_story', story)
 .then(function(res){
@@ -129,6 +130,20 @@ o.getUserFamily = function(id){
   });
   console.log(q.promise + "q.promise from factory");
   return q.promise;
+};
+
+o.saveFamMember = function(family,member){
+  console.log("made it to the factory!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+  console.log(family.members + "family.members");
+  console.log(family + "family");
+  console.log(family.id+ "family.id");
+  console.log(member._id + "member.id");
+  var q = $q.defer();
+  $http.post('/api/family/' +family.id+ '/add_user', member)
+  .then(function(res){
+  q.resolve(res.data);
+  });
+    return q.promise;
 };
 
       return o;

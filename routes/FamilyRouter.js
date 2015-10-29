@@ -77,6 +77,22 @@ router.post('/', function(req,res,next){
 });
 });
 
+router.post('/:id/add_user', auth,function(req,res,next){
+var member = new User(req.body);
+// console.log(fam);
+member.save(function(err,result){
+  // console.log(fam._id);
+  // console.log(User);
+  console.log(member , + " member");
+  Family.update({_id: req.params.id}, {$push: {members: member}},
+    function (err, result) {
+  // if (err) res.status(500).send({err: "Error updating"});
+  // if(!result) res.status(500).send({err: "Error updating"});
+  // console.log(fam);
+  res.send(result);
+    });
+  });
+});
 
 router.delete('/:id', function(req,res,next){
   // console.log("I made it to the route file");
