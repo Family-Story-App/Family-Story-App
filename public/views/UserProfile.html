@@ -26,47 +26,20 @@ ADD DEFAULT PIC FOR STORY IF USER DOESNT UPLOAD ONE
 <div layout="row">
   <div flex="80" class="story-box">
     <h2>My Stories</h2>
-    <div ng-repeat="s in vm.userStory.story track by $index">
+    <div ng-repeat="s in vm.userStory track by $index">
       <md-card>
         <a ui-sref="Story({id: s._id})"><img ng-src="{{s.photo}}" class="md-card-image" alt="{{s.title}}" title="{{s.title}}"></a>
         <md-card-content>
           <div layout="row">
-              <h2 class="md-title"><a ui-sref="Story({id: s._id})">{{s.title}}</a></h2>
+              <h2 class="md-title"><a ui-sref="Story({id: s._id})">{{s}}</a></h2>
           </div>
           <div layout="row">
-              Written by:<a ui-sref=""><i>{{s.createBy}}</i></a><br>
+              Written by:<a ui-sref=""><i>{{s.story.title}}</i></a><br>
           </div>
           <p>
             {{s.body}}
           </p>
         </md-card-content>
-        <div class="md-actions" layout="row" layout-align="end center">
-          <md-button ui-sref="EditStory({StoryId: s._id})">Edit</md-button>
-            <div ng-show="">
-              <form ng-submit="vm.editFamily();">
-                <md-content >
-                  <md-input-container>
-                    <label>Family Name</label>
-                    <input ng-model="vm.family.familyName">
-                  </md-input-container><br>
-                  <md-input-container>
-                    <label>Origin</label>
-                    <input ng-model="vm.family.origin" >
-                  </md-input-container><br>
-                  <md-input-container>
-                    <label>Photo</label>
-                    <textarea ng-model="vm.family.photo" ></textarea>
-                  </md-input-container><br>
-                  <md-input-container>
-                    <label>Password</label>
-                    <input ng-model="vm.family.password" >
-                  </md-input-container><br>
-                  <md-button type="submit">Submit</md-button>
-                </md-content>
-              </form>
-            </div>
-          <md-button ng-click="vm.deleteStory(s)">Delete</md-button>
-      </div>
     </md-card>
     </div>
     </div>

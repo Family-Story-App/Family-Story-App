@@ -9,17 +9,17 @@
 	<div >
 	    <md-content class="md-padding" >
 	      <div   layout="row" layout-wrap>
-	        <md-card ng-repeat="s in vm.stories | filter:searchText" flex="35" layout-wrap >
+	        <md-card ng-repeat="s in vm.stories| filter:searchText" flex="35" layout-wrap >
 	          <img ng-src="{{s.photo}}" class="md-card-image" alt="{{s.title}}" title="{{s.title}}">
 	          <md-card-content flex="30" layout-wrap>
 	            <div flex="30" layout-wrap>
-	                <h2 class="md-title">{{s.title}}</h2>
+	                <h2 class="md-title">{{s}}</h2>
 	            </div>
 	            <div layout="row">
-	                Written by:<i>{{s.createBy}}</i><br>
+	                Written by:<i>{{s.title}}</i><br>
 	            </div>
 	            <p>
-	              {{s.body}}
+	              {{s.stories.title}}
 	            </p>
 	            <div layout="row">
 	              <div  >

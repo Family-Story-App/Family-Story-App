@@ -9,7 +9,7 @@ var StorySchema = new mongoose.Schema({
     tags: String,
     createBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     deleted: Date,
-    family: {type: mongoose.Schema.Types.ObjectId, ref: 'Family'},
+    family: [{type: mongoose.Schema.Types.ObjectId, ref: 'Family'}],
     postedOn: Date,
     comments: [{
       commenter: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},

@@ -62,6 +62,23 @@ router.patch('/:id', auth,function(req,res,next){
 // router.get('/', function(req,res,next){
 //   Family.$where('')
 // });
+router.get('/', function(req,res,next){
+
+// console.log('other GET req');
+Family
+  .find({}, function(err,result){
+    if(err) return next(err);
+    if(!result) return next({err: "Couldnt find a user with that id"});
+    // console.log(result);
+  }).populate('stories', 'title')
+  .exec(
+    function(err,result){
+      if(err) return next(err);
+      console.log(result);
+      res.send(result);
+    });
+});
+
 
 
 router.post('/', function(req,res,next){

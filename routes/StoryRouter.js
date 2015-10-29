@@ -63,28 +63,30 @@ router.post('/', function(req, res, next) {
   // astory.createBy = req.payload.username;
   // console.log(astory , " a story");
   // astory.
-    astory.save(function(err,result){
-  // Family.findOne({familyName:req.body.family}, function(err,result){
-  //   if(err) return next(err);
-  //   if(!result) return next({err: "Couldnt find a user with that id"});
-  //
-  //   // req.user = result;
-  //   result.update({$push: {stories: astory}},
-  //     function(err,result){
-  //      if(err) return next(err);
-  //      if(!result) return next({err: "Couldnt find a user with that id"});
-  //   // next();
-  //   });
+  Family.findOne({familyName:req.body.family}, function(err,result){
+    if(err) return next(err);
+    if(!result) return next({err: "Couldnt find a user with that id"});
+
+    // req.user = result;
+    result.update({$push: {stories: astory}},
+      function(err,result){
+       if(err) return next(err);
+       if(!result) return next({err: "Couldnt find a user with that id"});
+    // next();
+    });
     // console.log(req.user._id);
   // console.log(req.body);
+  astory.save(function(err,result){
 
 
     User.update({_id: req.body.id}, {$push: {story: astory}},
       function (err, result) {
-    res.send();
         });
       // });
     });
+    res.send(result);
+
+  });
   });
 
 router.delete('/:id', function(req, res, next){
@@ -94,20 +96,26 @@ router.delete('/:id', function(req, res, next){
   });
 });
   // Getting all the stories
-router.get('/', function(req,res,next){
-
-// console.log('other GET req');
-Story
-  .find({})
-    // .select('title body createBy photo tags addedBy')
-    // .populate('createBy', 'username')
-    .populate('createdBy', 'username')
-    .exec(function(err,result){
-      if(err) return next(err);
-      // console.log(result);
-      res.send(result);
-    });
-});
+// router.get('/', function(req,res,next){
+//
+// // console.log('other GET req');
+// Story
+//   .find({}, function(err,result){
+//     if(err) return next(err);
+//     if(!result) return next({err: "Couldnt find a user with that id"});
+//     console.log(result);
+//   })
+//     // .select('title body createBy photo tags family addedBy')
+//     // // .populate('createBy', 'username')
+//     .populate( 'family','stories')
+//     // console.log(Story)
+//     .exec(
+//     function(err,result){
+//       if(err) return next(err);
+//       console.log(result);
+//       res.send(result);
+//     });
+// });
 
 
     // Editing a specified story

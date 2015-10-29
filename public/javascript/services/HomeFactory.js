@@ -12,7 +12,7 @@
 			console.log('making story in factory');
 			var q = $q.defer();
 			console.log(story);
-			$http.post('/api/story', {story,id}).then(function(res){
+			$http.post('/api/story', story,id).then(function(res){
 				q.resolve(res.data);
 			});
 			return q.promise;
@@ -30,7 +30,7 @@
 		// Shows stories on home page
 o.getStories = function(){
 	var q = $q.defer();
-	$http.get('/api/story').then(function(res){
+	$http.get('/api/family').then(function(res){
 		q.resolve(res.data);
 	});
 	return q.promise;

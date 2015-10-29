@@ -82,12 +82,12 @@ router.get('/:id/story', function(req,res,next){
 // console.log(req.payload._id);
 User
   .findOne({_id: req.user.id},'story')
-    .populate('story','title body photo createBy')
+    .populate('story','title')
     .exec(function(err,result){
       if(err) return next(err);
       if(!result) return next("There was an issue posting the story");
       // console.log(req.payload.username);
-
+console.log(result);
       res.send(result);
     });
 });

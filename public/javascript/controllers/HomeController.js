@@ -10,6 +10,7 @@
 
 // console.log("being run");
 		var vm = this;
+		vm.stories = {};
 		HomeFactory.getStories().then(function(res){
 			vm.stories = res;
 		});
