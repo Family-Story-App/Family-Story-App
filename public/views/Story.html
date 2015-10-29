@@ -7,6 +7,7 @@ link to family profile and author profile -->
   <!-- <h3>Family Stories</h3> -->
 </div>
 <div id='Story' style="background-color:#d9e5d6">
+  <md-button class="md-raised " ui-sref='Home'>Home</md-button>
 
     <h1 style="padding-top:30px">{{vm.astory.title}}</h1>
     <img src="{{vm.astory.photo}}" alt='{{vm.astory.title}}'/>
@@ -37,8 +38,8 @@ link to family profile and author profile -->
 
   <div id='Comments'>
     <form ng-submit=''>
-      <div ng-repeat="a in vm.astory">
-        <h2>{{a.comments.body}}</h2>
+      <div ng-repeat="c in vm.comment track by $index">
+        <h2>{{[$index].body}}</h2>
       </div>
   </form>
   </div>

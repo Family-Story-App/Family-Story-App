@@ -19,6 +19,7 @@
 		HomeFactory.getStoryById($stateParams.id).then(function(res){
 			console.log(res);
 			vm.astory = res;
+			console.log(res.comments);
 		});
 
 
