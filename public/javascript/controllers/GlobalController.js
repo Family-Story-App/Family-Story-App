@@ -15,15 +15,15 @@
 
 		vm.logout = function() {
 			UserFactory.logout();
-			$state.go('Landing');
+			$state.go('Login');
 		};
 
 		vm.registerUser = function() {
 			UserFactory.registerUser(vm.user).then(function() {
-				$state.go('Home');
+				$state.go('AddFamily');
 			});
 		};
-		
+
 		vm.loginUser = function(){
 			console.log('login');
 			UserFactory.loginUser(vm.user).then(function(){

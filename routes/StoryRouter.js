@@ -87,7 +87,12 @@ router.post('/', function(req, res, next) {
     });
   });
 
-
+router.delete('/:id', function(req, res, next){
+  Story.remove({_id: req.params.id}, function(err, result){
+    if(err) return next(err);
+    res.send();
+  });
+});
   // Getting all the stories
 router.get('/', function(req,res,next){
 
