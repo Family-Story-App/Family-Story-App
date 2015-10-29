@@ -10,6 +10,7 @@
 
 // console.log("being run");
 		var vm = this;
+		var familyS = false;
 		vm.stories = {};
 		HomeFactory.getFamilies().then(function(res){
 			vm.family = res;

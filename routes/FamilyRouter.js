@@ -22,6 +22,24 @@ Family.findOne({_id:id}, function(err,result){
 });
 
 
+router.get('/:id/story', function(req,res,next){
+  // console.log("HELLO!");
+// console.log(req.payload._id);
+Family
+  .findOne({_id: req.params.id},'stories',function(err,result){
+    if(err) return next(err);
+    if(!result) return next({err: "Couldnt find a user with that id"});
+    // console.log(result);
+  })
+  .populate('._id', 'title')
+  .exec(
+    function(err,result){
+      if(err) return next(err);
+      console.log(result);
+      res.send(result);
+    });
+});
+
 router.get('/:id', function(req,res,next){
   console.log("made it to route file");
   Family

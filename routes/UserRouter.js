@@ -47,7 +47,7 @@ fam.save(function(err,result){
 //add story and push story into family
 router.post('/:id/add_story', auth,function(req,res,next){
 var astory = new Story(req.body);
-// console.log(id, "line 49 user router");
+console.log("HELLO FROM USER ROUTER!");
 // astory.createBy = req.payload.username;
 // console.log(astory , " a story");
 // astory.
@@ -62,8 +62,8 @@ Family.findOne({familyName:req.body.family}, function(err,result){
      if(!result) return next({err: "Couldnt find a user with that id"});
   // next();
   });
-  console.log(req.user._id);
-console.log(req.body);
+  // console.log(req.user._id);
+// console.log(req.body);
 astory.save(function(err,result){
 
   User.update({_id: req.user._id}, {$push: {story: astory}},
@@ -81,7 +81,7 @@ router.get('/:id/story', function(req,res,next){
   // console.log("HELLO!");
 // console.log(req.payload._id);
 User
-  .findOne({_id: req.user.id},'story')
+  .findOne({_id: req.user.id})
     .populate('story','title')
     .exec(function(err,result){
       if(err) return next(err);

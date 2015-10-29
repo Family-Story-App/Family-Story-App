@@ -9,6 +9,7 @@
 
 		var vm = this;
 		vm.userFam = {};
+		vm.userStory={};
 		// vm.userFam.family = [];
 		vm.status = UserFactory.status;
 
@@ -17,9 +18,9 @@
 //}
 
 //Get all of a user's stories for DISPLAY PAGE
-UserFactory.getUserStories($stateParams.id).then(function(res){
+UserFactory.getFamStories($stateParams.id).then(function(res){
 
-	vm.userStory = res;
+	vm.famStory = res;
 });
 
 UserFactory.getUserFamily($stateParams.id).then(function(res){
@@ -41,7 +42,7 @@ vm.deleteFamily = function(familyToDelete){
 
 vm.deleteStory = function(storyToDelete){
 	console.log("Heading to factory");
-	HomeFactory.deleteStory(storyToDelete._id)
+	HomeFactory.deleteStory(storyToDelete)
 	.then(function(){
 		console.log("Made it back to controller. about to splice!");
 		vm.userStory.story.splice(vm.userStory.story.indexOf(storyToDelete),1);

@@ -12,7 +12,7 @@
 			console.log('making story in factory');
 			var q = $q.defer();
 			console.log(story);
-			$http.post('/api/story', story,id).then(function(res){
+			$http.post('/api/story/'+id+'/add_story', story).then(function(res){
 				q.resolve(res.data);
 			});
 			return q.promise;
@@ -56,6 +56,7 @@ o.editStory = function(story){
 
 o.getStoryById = function(id){
 	var q = $q.defer();
+	console.log(id, " in factory getting by id");
 	$http.get('/api/story/'+ id).then(function(res){
 		console.log('made it back');
 		q.resolve(res.data);

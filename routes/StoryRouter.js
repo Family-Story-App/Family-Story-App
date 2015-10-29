@@ -55,10 +55,11 @@ router.put('/:id', auth,function(req,res,next){
 
 
  //Adding a new story
-router.post('/', function(req, res, next) {
-  console.log(req.body.story, "line 59 sr");
-  console.log(req.body.id, "line 59 sr");
+router.post('/:id/add_story', function(req, res, next) {
+  // console.log(req.body.id, "line 59 sr");
   var astory = new Story(req.body.story);
+  console.log(astory.stories, "astory line 59 sr");
+
   // console.log(id, "line 49 user router");
   // astory.createBy = req.payload.username;
   // console.log(astory , " a story");
@@ -81,6 +82,8 @@ router.post('/', function(req, res, next) {
 
     User.update({_id: req.body.id}, {$push: {story: astory}},
       function (err, result) {
+        if(err) return next(err);
+        if(!result) return next({err: "Couldnt find a user with that id"});
         });
       // });
     });

@@ -1,40 +1,72 @@
-<div ng-contoller='FamilyController as vm'>
-<!--view for edit family and edit story on family profile page
-join family button
-family photo
-showing all family members (possible links to personal profile)
-show all story w/dates
-delete family button-->
+<div ng-controller='UserController as vm'>
+<!--
+display personal profile info
+edit personal profile info
+add new stories
+photo
+delete Story
+delete linked profile
 
-      <!-- Heading -->
-<div style="text-align:center">
-  <h1>The {{vm.family.familyName}} Family Story</h1>
-</div>
 
-    <!-- Top Level display of family photo and members -->
-<div layout="row" layout-wrap>
-  <div style="background-color:lightblue;"flex="40">
-    [Family Photo]<br>
-    <img src='#' alt='family profile picture'><br>
-    <div>{{vm.family.origin}}</div>
-  </div>
-  <div style="background-color:lightgreen;" flex="60">
-    [Family Members]<br>
-    <
-    <div>{{vm.family.image}}</div>
-    <h4><a href='#'>{{vm.family.memberName}}</a></h4>
+*** STRETCH GOALS ******
+ADD DEFAULT PIC FOR STORY IF USER DOESNT UPLOAD ONE
+ -->
+<div class="profile-header" layout="row">
+  <div flex-offset="45">
+    <!-- <img ng-src="vm.user.photo" alt="" /> -->
   </div>
 </div>
 
-    <!-- Display Family Stories -->
-<div>
-  <h5>{{vm.familyStories}}<h5>
+<div class="toolbar" layout="row">
+  <md-button class="nav-buttons"  ui-sref="AddStory">Add Story</md-button>
+  <md-button class="nav-buttons"  ui-sref="AddFamily">Add a Family</md-button>
+  <!-- <md-button class="nav-buttons"  ng-click="" ng-show="join">Join a Family</md-button> -->
 </div>
 
-<!-- Delete Family Button -->
-<div>
-  <md-button class="md-raised md-warn">Delete Family</md-button>
-</div>
+<div layout="row">
+  <div flex="80" class="story-box">
+    <h2>Our Family's Stories</h2>
+    <div ng-repeat="s in vm.famStory.stories track by $index">
+      <md-card>
+        <md-card-content>
+          <div layout="row">
+              <h2 class="md-title"><a ui-sref="Story({id: s._id})">{{s}}</a></h2>
+          </div>
 
+        </md-card-content>
+        <div class="md-actions" layout="row" layout-align="end center">
+          <a ui-sref="EditStory({id: s})">Edit</a>
+          <md-button ng-click="vm.deleteStory(s)">Delete</md-button>
+      </div>
+    </md-card>
+    </div>
+    </div>
+    <div flex class="family-box">
+      <h2>My Family</h2>
+        <div ng-repeat="f in vm.userFam.family track by $index">
+          <md-card>
+            <md-card-content>
+              <div layout="row">
+                  <h2 class="md-title"><a ui-sref="Family({id: f._id})">{{f.familyName}}</a></h2>
+              </div>
+              <div layout="row">
+                  Origin:<i>{{f.origin}}</i><br>
+              </div>
+              <p>
+                {{f.origin}}
+              </p>
+            </md-card-content>
+            <div class="md-actions" layout="row" layout-align="end center">
+              <a ui-sref="EditFamily({id: f._id})">Edit</a>
+              <md-button ng-click="vm.deleteFamily(f)">Delete</md-button>
+          </div>
+        </md-card>
+          <div ng-show="familyShow">
+
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
 
 </div>

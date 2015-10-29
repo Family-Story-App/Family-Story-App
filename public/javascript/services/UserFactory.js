@@ -100,7 +100,7 @@ q.resolve(res.data);
 o.addStory = function(story,id){
 var q = $q.defer();
 // console.log(story + 'story');
-console.log(id + 'id');
+// console.log(id + 'id');
 $http.post('/api/user/' +id+ '/add_story', story)
 .then(function(res){
 q.resolve(res.data);
@@ -115,10 +115,21 @@ o.getUserStories = function(id){
     q.resolve(res.data);
     // console.log(res.data + 'res.data from factory being sent back to controller');
   });
-  console.log(q.promise + "q.promise from factory");
+  // console.log(q.promise + "q.promise from factory");
   return q.promise;
 };
 
+
+o.getFamStories = function(id){
+  var q = $q.defer();
+  $http.get('/api/family/'+id+'/story')
+  .then(function(res){
+    q.resolve(res.data);
+    // console.log(res.data + 'res.data from factory being sent back to controller');
+  });
+  // console.log(q.promise + "q.promise from factory");
+  return q.promise;
+};
 o.getUserFamily = function(id){
   // console.log("just got to factory about to go to route");
   var q = $q.defer();

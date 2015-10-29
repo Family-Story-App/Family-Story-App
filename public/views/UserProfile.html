@@ -25,7 +25,7 @@ ADD DEFAULT PIC FOR STORY IF USER DOESNT UPLOAD ONE
 
 <div layout="row">
   <div flex="80" class="story-box">
-    <h2>My Stories</h2>
+    <!-- <h2>My Stories</h2>
     <div ng-repeat="s in vm.userStory track by $index">
       <md-card>
         <a ui-sref="Story({id: s._id})"><img ng-src="{{s.photo}}" class="md-card-image" alt="{{s.title}}" title="{{s.title}}"></a>
@@ -34,7 +34,7 @@ ADD DEFAULT PIC FOR STORY IF USER DOESNT UPLOAD ONE
               <h2 class="md-title"><a ui-sref="Story({id: s._id})">{{s}}</a></h2>
           </div>
           <div layout="row">
-              Written by:<a ui-sref=""><i>{{s.story.title}}</i></a><br>
+              Written by:<a ui-sref=""><i>{{s.title}}</i></a><br>
           </div>
           <p>
             {{s.body}}
@@ -42,7 +42,7 @@ ADD DEFAULT PIC FOR STORY IF USER DOESNT UPLOAD ONE
         </md-card-content>
     </md-card>
     </div>
-    </div>
+    </div> -->
     <div flex class="family-box">
       <h2>My Family</h2>
         <div ng-repeat="f in vm.userFam.family track by $index">
