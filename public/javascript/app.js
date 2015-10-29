@@ -25,7 +25,7 @@
 			url: '/story/:id',
 			templateUrl: 'views/Story.html'
 		}).state('Family',{
-			url: '/family/:familyId',
+			url: '/family/:id',
 			templateUrl: 'views/Family.html'
 		}).state('Profile',{
 			url: '/profile/:id',

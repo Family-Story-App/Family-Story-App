@@ -28,7 +28,7 @@
 		};
 
 		// Shows stories on home page
-o.getStories = function(){
+o.getFamilies = function(){
 	var q = $q.defer();
 	$http.get('/api/family').then(function(res){
 		q.resolve(res.data);

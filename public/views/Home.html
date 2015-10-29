@@ -9,27 +9,20 @@
 	<div >
 	    <md-content class="md-padding" >
 	      <div   layout="row" layout-wrap>
-	        <md-card ng-repeat="s in vm.stories| filter:searchText" flex="35" layout-wrap >
-	          <img ng-src="{{s.photo}}" class="md-card-image" alt="{{s.title}}" title="{{s.title}}">
+	        <md-card ng-repeat="s in vm.family| filter:searchText" flex="35" layout-wrap >
+	          <img ng-src="{{s.photo}}" class="md-card-image" alt="{{s.familyName}}" title="{{s.familyName}}">
 	          <md-card-content flex="30" layout-wrap>
 	            <div flex="30" layout-wrap>
-	                <h2 class="md-title">{{s}}</h2>
+	                <h2 class="md-title">{{s.familyName}}</h2>
 	            </div>
-	            <div layout="row">
-	                Written by:<i>{{s.title}}</i><br>
-	            </div>
+							<h4>Our Origins</h4>
 	            <p>
-	              {{s.stories.title}}
+	              {{s.origin}}
 	            </p>
-	            <div layout="row">
-	              <div  >
-	                Posted in: {{s.tags}}<br>
-	                <!-- Family: <a ui-sref="Family({id: s.family._id})">{{s.family}}</a> -->
-	              </div>
-	            </div>
+
 	          </md-card-content>
 	          <div class="md-actions" layout="row" layout-align="end center">
-	            <md-button ui-sref="Story({id: s._id})">Read More</md-button>
+	            <md-button ui-sref="Family({id: s._id})">Read More</md-button>
 	        </div>
 	        </md-card>
 	      </div>
