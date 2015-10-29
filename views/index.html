@@ -9,14 +9,9 @@
 </head>
 
 <body ng-controller="GlobalController as nav">
-
-	<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
-		<md-toolbar class="md-theme-light">
-			<h1 class="md-toolbar-tools">Sidenav Right</h1>
-		</md-toolbar>
-		<md-content layout-padding>
+		<!-- <div>
 			<h3>Welcolme,<a ui-sref="UserProfile({id: nav.status._id})"> {{nav.status.username}}</a>!</h3>
-			<h3><a ui-sref="AddFamily"> Add a Family</a></h3>
+			<md-button class="md-fab md-primary md-hue-2" ui-sref="AddFamily"> Add a Family</md-button>
 			<h3><a ng-click="joinFamily"> Join a Family</a></h3>
 			<div ng-show="joinFamily">
 				<md-input-container>
@@ -28,8 +23,39 @@
 			<md-button ng-click="close()" class="md-primary">
 				Close
 			</md-button>
-		</md-content>
-	</md-sidenav>
+		</div> -->
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<!-- <div class="navbar-header">
+					<md-button type="button"  ng-click="nav.logout()">Logout</md-button>
+					<md-button class="navbar-brand" ui-sref="Home">Story Home</md-button>
+					<md-button class="navbar-brand" ui-sref="Profile">Profile</md-button>
+					<md-button class="navbar-brand" ui-sref="Family">Family</md-button>
+				</div> -->
+				<!-- Show this if the user is not logged in -->
+				<div class="nav navbar-nav navbar-right" ng-show="!nav.status.username">
+					<!-- <a ui-sref="Login">Login</a>
+					<a ui-sref="Register">Register</a> -->
+				</div>
+				<!-- Show this if the user IS logged in -->
+				<div layout='row' class="nav navbar-nav navbar-right" ng-show="nav.status.username">
+						<md-button class="navbar-brand" ng-click="nav.logout()">Logout</md-button>
+						<md-button class="navbar-brand" ui-sref="Home">Story Home</md-button>
+						<!-- <md-button class="navbar-brand" ui-sref="Profile">Profile</md-button> -->
+					<md-button ui-sref="Profile({id: nav.status._id})">{{nav.status.username}} Profile</md-button>
+						<md-button class="navbar-brand" ui-sref="Family">Family</md-button>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
+					<!-- Show this if the user IS logged in -->
+					<!-- <ul class="nav navbar-nav navbar-right" ng-show="nav.status.username">
+						<md-button ui-sref="Profile({id: nav.status._id})">Welcome {{nav.status.username}}</md-button>
+						<md-button ng-click="nav.logout()">Logout</md-button>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
 	<ui-view></ui-view>
 
 	<!-- Ext Libs -->

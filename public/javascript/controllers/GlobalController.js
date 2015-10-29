@@ -16,6 +16,7 @@
 		vm.logout = function() {
 			UserFactory.logout();
 			$state.go('Login');
+			vm.user = {};
 		};
 
 		vm.registerUser = function() {
