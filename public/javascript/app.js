@@ -30,6 +30,9 @@
 		}).state('Profile',{
 			url: '/profile/:id',
 			templateUrl: 'views/UserProfile.html'
+		}).state('FamilyReg',{
+			url: '/family_reg',
+			templateUrl: 'views/FamilyReg.html'
 		});
 		$urlRouterProvider.otherwise('/');
 		$httpProvider.interceptors.push('AuthFactory');

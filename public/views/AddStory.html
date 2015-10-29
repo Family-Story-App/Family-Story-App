@@ -14,7 +14,7 @@ form located on Family profile, personal profile and Homepage
 
  <!-- NOTE: THIS FORM SHOULD BE HIDDEN (NG-SHOW) UNTIL FAMILY IS SELECTED AND LINKED!!!  Form used to edit a test -->
  <form ng-submit='vm.addStory()'>
-   <h1 style="text-align:center"> Add A New test </h1>
+   <h1 style="text-align:center"> Add A New Story </h1>
    <div ng-model="data.group1">
      <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect">
         <option ng-repeat="p in vm.user.family" value="{{option._id}}">{{p.familyName}}</option>

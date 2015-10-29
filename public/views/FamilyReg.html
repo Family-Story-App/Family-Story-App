@@ -1,0 +1,29 @@
+<div ng-controller='FamRegController as vm'>
+  <h1 style="color:red;text-align:center;font-family:Sans Serif">Add A New Family</h1>
+  <form ng-submit=''>
+    <!-- <h1 >Sign In</h1> -->
+ <md-input-container>
+    <input class="form-control" required placeholder="Family Name..." ng-model="vm.family.familyName">
+ </md-input-container>
+   <md-input-container>
+    <input type="text" class="form-control"  placeholder="Family Origin..." ng-model="vm.family.origin">
+ </md-input-container>
+ <md-input-container>
+  <input type="text" class="form-control"  placeholder="Family Photo..." ng-model="vm.family.photo">
+</md-input-container>
+<md-input-container>
+ <input type="text" class="form-control"  placeholder="User Name..." ng-model="vm.family.createBy">
+</md-input-container>
+<md-input-container>
+ <input type="password" class="form-control"  placeholder="Family Password..." ng-model="vm.family.password">
+</md-input-container>
+   <md-input-container>
+    <div style="text-align: center">
+      <button type='button' ui-sref="Profile" >Add Family</a>
+  </md-input-container>
+  </form>
+
+
+
+
+</div>

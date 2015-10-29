@@ -1,21 +1,21 @@
-<div ng-controller='StoryDetailsController as vm'>
+<div style='text-align:center' ng-controller='StoryDetailsController as vm'>
 <!--display stories and pics
 diplay comments for storyadd comments
 link to family profile and author profile -->
 
-<div style="text-align:center">
-  <h3>Family Stories</h3>
+<div style="text-align:center;background-image: url('http://www.storypossibilities.com/wp-content/uploads/2014/03/Family-Stories.jpg');background-repeat:no-repeat;height:600px;background-position:center;padding-top20px;background-color:#16a8c7;padding-bottom:25px;">
+  <!-- <h3>Family Stories</h3> -->
 </div>
-<div id='Story'>
+<div id='Story' style="background-color:#d9e5d6">
 
-    <h1>{{vm.astory.title}}</h1>
-    <img height="400";width="500"src="{{vm.astory.photo}}" alt='{{vm.astory.title}}'/>
+    <h1 style="padding-top:30px">{{vm.astory.title}}</h1>
+    <img src="{{vm.astory.photo}}" alt='{{vm.astory.title}}'/>
     <h4>{{vm.astory.body}}</h4>
      <p>{{vm.astory.createBy}}</p>
     <h2>{{vm.astory.tags}}</h2>
     <h2>{{vm.astory.postedOn}}</h2>
 <!-- <div style="float:left" > -->
-    <md-button ui-sref='EditStory({id: _id})' class="md-raised md-warn" >Edit Story</md-button>
+    <md-button style='margin-bottom:-13px;' ui-sref="EditStory({id: _id})" class="md-raised md-warn" >Edit Story</md-button>
 
     <md-button ng-click='deleteStory()' class="md-raised md-warn" >Delete Story</md-button>
 <!-- </div> -->
@@ -24,6 +24,9 @@ link to family profile and author profile -->
 
             <!-- hide Comment btn but show comment line -->
     <md-button class="md-raised md-warn" ng-show='vm.NoComment'ng-hide='!vm.YesComment' ng-click='vm.HideCom()'>Hide Comments</md-button>
+
+
+
               <!-- Comments -->
     <md-input-container ng-show='vm.showComment'>
       <textarea placeholder="Add a comment..."ng-model="vm.comment.body"></textarea><br>
@@ -35,7 +38,7 @@ link to family profile and author profile -->
   <div id='Comments'>
     <form ng-submit=''>
       <div ng-repeat="a in vm.astory">
-        <h2 id='comment'>{{a.comments.body}}</h2>
+        <h2>{{a.comments.body}}</h2>
       </div>
   </form>
   </div>
