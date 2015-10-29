@@ -70,6 +70,7 @@ router.post('/', function(req, res, next) {
   // Getting all the stories
 router.get('/', function(req,res,next){
 
+console.log('other GET req');
 Story
   .find({})
     // .select('title body createBy photo tags addedBy')
@@ -94,6 +95,7 @@ router.put('/', function(req, res, next){
 
         //  posting comment   //----------
 router.post('/',  function(req, res, next){
+        console.log('right in post router');
     var comment = {
       body: req.body.body
       // commenter: req.payload.username

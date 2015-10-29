@@ -9,12 +9,13 @@ link to family profile and author profile -->
 <div id='Story'>
 
     <h1>{{vm.astory.title}}</h1>
-    <img src="{{vm.astory.photo}}" alt='{{vm.astory.title}}'/>
+    <img style="height:400px;width:500px"src="{{vm.astory.photo}}" alt='{{vm.astory.title}}'/>
     <h4>{{vm.astory.body}}</h4>
      <p>{{vm.astory.createBy}}</p>
     <h2>{{vm.astory.tags}}</h2>
     <h2>{{vm.astory.postedOn}}</h2>
-    <md-button class="md-raised md-warn" ng-click='vm.EditCom()'>Edit Story</md-button>
+
+    <md-button ui-sref='EditStory' class="md-raised md-warn" >Edit Story</md-button>
 
 
           <!-- show Comment btn but hide comment line -->
@@ -22,7 +23,6 @@ link to family profile and author profile -->
 
             <!-- hide Comment btn but show comment line -->
     <md-button class="md-raised md-warn" ng-show='vm.NoComment'ng-hide='!vm.YesComment' ng-click='vm.HideCom()'>Hide Comments</md-button>
-
               <!-- Comments -->
     <md-input-container ng-show='vm.showComment'>
       <textarea placeholder="Add a comment..."ng-model="vm.comment.body"></textarea><br>
@@ -34,9 +34,7 @@ link to family profile and author profile -->
   <div id='Comments'>
     <form ng-submit=''>
       <div ng-repeat="a in vm.astory">
-
         <h2>{{a.comments.body}}</h2>
-
       </div>
   </form>
   </div>
