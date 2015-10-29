@@ -10,13 +10,13 @@
 			url: '/login',
 			templateUrl: 'views/Login-Reg.html',
 		}).state('EditStory',{
-			url: '/edit_story/:StoryId',
+			url: '/edit_story/:id',
 			templateUrl: 'views/EditStory.html',
 		}).state('AddStory',{
 			url: '/add_story',
 			templateUrl: 'views/AddStory.html'
 		}).state('EditFamily',{
-			url: '/edit_family/:familyId',
+			url: '/edit_family/:id',
 			templateUrl: 'views/EditFamily.html',
 		}).state('AddFamily',{
 			url: '/add_family',

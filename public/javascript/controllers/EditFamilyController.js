@@ -1,20 +1,26 @@
 (function() {
 	'use strict';
 	angular.module('app')
-	.controller('FamilyController', EditFamilyController);
-	function EditFamilyController(HomeFactory, $state, $stateParams) {
+	.controller('EditFamilyController', EditFamilyController);
 
-		var vm = this;
-		vm.family = {};
 
-HomeFactory.getFamilyById($stateParams.familyId).then(function(res){
-        vm.family = res;
-      });
+function EditFamilyController(HomeFactory, $state, $stateParams) {
+  console.log("im here");
+  var vm = this;
+  vm.family = {};
 
-vm.editFamily = function(){
-HomeFactory.editFamily(vm.family).then(function(){
-$state.go('Home');
-            });
-          };
-  }
-  })();
+  HomeFactory.getFamilyById($stateParams.id).then(function(res){
+  	console.log("made it back to controller");
+
+          vm.family = res;
+        });
+
+  vm.editFamily = function(){
+  HomeFactory.editFamily(vm.family).then(function(){
+  $state.go('Home');
+              });
+            };
+
+
+}
+})();

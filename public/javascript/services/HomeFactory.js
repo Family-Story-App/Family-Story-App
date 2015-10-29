@@ -18,6 +18,15 @@
 			return q.promise;
 		};
 
+		o.deleteStory = function(id){
+			var q = $q.defer();
+		$http.delete('/api/story/' + id)
+		.then(function(){
+			q.resolve();
+		});
+		return q.promise;
+		};
+
 		// Shows stories on home page
 o.getStories = function(){
 	var q = $q.defer();
@@ -27,9 +36,16 @@ o.getStories = function(){
 	return q.promise;
 };
 
+o.editStory = function(story){
+	var q = $q.defer();
+	$http.put('/api/story/'+story._id,story)
+	.then(function(res){
+        q.resolve(res.data);
+      });
+      return q.promise;
+};
 
 o.getStoryById = function(id){
-	console.log('ajax call');
 	var q = $q.defer();
 	$http.get('/api/story/'+ id).then(function(res){
 		console.log('made it back');
@@ -101,11 +117,13 @@ o.addFamily = function(family){
 // };
 
 o.getFamilyById = function(id){
+	console.log("made it to factory!");
 	var q = $q.defer();
 	$http.get('/api/family/' + id)
 	.then(function(res){
 		q.resolve(res.data);
 	});
+	return q.promise;
 };
 
 o.editFamily = function(family){
@@ -117,6 +135,14 @@ o.editFamily = function(family){
       return q.promise;
 };
 
+o.deleteFamily = function(id){
+	var q = $q.defer();
+$http.delete('/api/family/' + id)
+.then(function(){
+	q.resolve();
+});
+return q.promise;
+};
 
 		return o;
 	}

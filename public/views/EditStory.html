@@ -1,20 +1,24 @@
-<div ng-controller='StoryController as vm'>
+<div ng-controller='EditStoryController as vm'>
 
 <!--
 display form to edit Story page
  -->
-  <h1 style="text-align:center"> Edit Story </h1>
+  <h1 style="text-align:left"> Edit Story </h1>
 
     <!-- Form used to edit a Story -->
-<form ng-init='edittedStory = vm.getCopy(s);'class="well container" ng-submit='vm.editStory(s._id, edittedStory);'>
+<form ng-submit='vm.editStory();'>
   <md-input-container>
-    <label style="text-align:center">Title</label>
-    <input type="text" ng-model="vm.Story.title">
+    <label style="text-align:left">Title</label>
+    <input type="text" ng-model="vm.story.title">
   </md-input-container>
   <md-input-container>
-    <label style="text-align:center">Photo Url</label>
-    <input type="text" ng-model="vm.Story.photo">
+    <label style="text-align:left">Photo Url</label>
+    <input type="text" ng-model="vm.story.photo">
     <img src="http://www.gettyimages.co.uk/gi-resources/images/Homepage/Category-Creative/UK/UK_Creative_462809583.jpg" alt="Story Image">
+  </md-input-container>
+  <md-input-container>
+    <textarea ng-model="vm.story.body">
+    </textarea>
   </md-input-container>
 
 

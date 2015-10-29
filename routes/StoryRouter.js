@@ -5,6 +5,11 @@ var User = mongoose.model('User');
 var Family = mongoose.model('Family');
 var Story = mongoose.model('Story');
 var passport = require('passport');
+var jwt = require('express-jwt');
+var auth = jwt({
+  secret: "This_is_MY_secret_Phrase",
+  userProperty: 'payload'
+});
 
     // sets router to search for objects with prop:id
 router.param('id', function(req, res, next, id){
@@ -17,6 +22,18 @@ router.param('id', function(req, res, next, id){
   });
 });
 
+
+router.put('/:id', auth,function(req,res,next){
+  Story.update({_id: req.params.id},req.body,
+  function(err,result){
+    // console.log(req.body + "req.body");
+    // console.log(req.params.id + "reqparams.id");
+  if(err) return next(err);
+  if(!result) return next("Could not create the object. Please check all fields.");
+  // console.log(result);
+  res.send(result);
+  });
+});
 // router.get('/:id', function(req, res, next){
 //   Story.findOne({_id: req.params.id}, function(err, result){
 //     if(err) return next(err);
@@ -52,16 +69,12 @@ router.post('/', function(req, res, next) {
 
   // Getting all the stories
 router.get('/', function(req,res,next){
-<<<<<<< HEAD
-  console.log('other GET req');
-Story  .find({})
-=======
+
 Story
   .find({})
     // .select('title body createBy photo tags addedBy')
     // .populate('createBy', 'username')
     .populate('createdBy', 'username')
->>>>>>> 4773a59b2557fcb0473419766c7e13d22dc9f952
     .exec(function(err,result){
       if(err) return next(err);
       // console.log(result);
@@ -95,7 +108,13 @@ router.post('/',  function(req, res, next){
     });
 });
 
-
+router.delete('/:id', function(req,res,next){
+  // console.log("I made it to the route file");
+  Story.remove({_id: req.params.id}, function(err,result){
+    if(err) return next(err);
+  res.send();
+});
+});
 
 
 

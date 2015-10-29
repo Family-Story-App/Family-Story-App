@@ -12,7 +12,7 @@ var auth = jwt({
 });
 
 
-router.param('id', function(req,res,next){
+router.param('id', function(req,res,next,id){
 Family.findOne({_id:id}, function(err,result){
   if(err) return next(err);
   if(!result) return next({err: "Couldnt find a family with that id"});
@@ -21,8 +21,34 @@ Family.findOne({_id:id}, function(err,result){
   });
 });
 
+
+router.get('/:id', function(req,res,next){
+  console.log("made it to route file");
+  Family
+  .findOne({_id: req.params.id},
+    function(err,result){
+      if(err) return next(err);
+      console.log(result);
+      res.send(result);
+    });
+});
+
 router.put('/:id', auth,function(req,res,next){
   Family.update({_id: req.params.id},req.body,
+  function(err,result){
+    // console.log(req.body + "req.body");
+    // console.log(req.params.id + "reqparams.id");
+  if(err) return next(err);
+  if(!result) return next("Could not create the object. Please check all fields.");
+  // console.log(result);
+  res.send(result);
+  });
+});
+
+//add user to family
+router.patch('/:id', auth,function(req,res,next){
+
+  Family.update({_id: req.params.id},{$push: {members: req.payload.username}},
   function(err,result){
     // console.log(req.body + "req.body");
     // console.log(req.params.id + "reqparams.id");
@@ -48,6 +74,15 @@ router.post('/', function(req,res,next){
   if(!result) return next("Could not create the object. Please check all fields.");
   // result.addedBy = req.payload.username;
   res.send(result);
+});
+});
+
+
+router.delete('/:id', function(req,res,next){
+  // console.log("I made it to the route file");
+  Family.remove({_id: req.params.id}, function(err,result){
+    if(err) return next(err);
+  res.send();
 });
 });
 

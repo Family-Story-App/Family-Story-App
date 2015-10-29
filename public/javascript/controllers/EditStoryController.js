@@ -15,7 +15,7 @@
           });
 
     vm.editStory = function(){
-    HomeFactory.editstory(vm.story).then(function(){
+    HomeFactory.editStory(vm.story).then(function(){
     $state.go('Home');
                 });
               };
