@@ -14,10 +14,11 @@ link to family profile and author profile -->
      <p>{{vm.astory.createBy}}</p>
     <h2>{{vm.astory.tags}}</h2>
     <h2>{{vm.astory.postedOn}}</h2>
+<!-- <div style="float:left" > -->
+    <md-button ui-sref='EditStory({id: _id})' class="md-raised md-warn" >Edit Story</md-button>
 
-    <md-button ui-sref='EditStory' class="md-raised md-warn" >Edit Story</md-button>
-
-
+    <md-button ng-click='deleteStory()' class="md-raised md-warn" >Delete Story</md-button>
+<!-- </div> -->
           <!-- show Comment btn but hide comment line -->
     <md-button class="md-raised md-primary" ng-show='!vm.Nocomment' ng-hide='vm.YesComment' ng-click='vm.ShowCom()'>Add Comments</md-button>
 
@@ -34,7 +35,7 @@ link to family profile and author profile -->
   <div id='Comments'>
     <form ng-submit=''>
       <div ng-repeat="a in vm.astory">
-        <h2>{{a.comments.body}}</h2>
+        <h2 id='comment'>{{a.comments.body}}</h2>
       </div>
   </form>
   </div>

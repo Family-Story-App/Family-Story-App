@@ -6,16 +6,22 @@ display form to edit Story page
   <h1 style="text-align:center"> Edit Story </h1>
 
     <!-- Form used to edit a Story -->
-<form ng-init='edittedStory = vm.getCopy(s);'class="well container" ng-submit='vm.editStory(s._id, edittedStory);'>
+<form ng-init='edittedStory = vm.getCopy(s);' ng-submit='vm.editStory(s._id, edittedStory);'>
+<!-- <div ng-repeat='s in vm.story'> -->
   <md-input-container>
     <label style="text-align:center">Title</label>
-    <input type="text" ng-model="vm.Story.title">
+    <input type="text" placeholder="{{s.title}}"ng-model="edittedStory.title">
   </md-input-container>
   <md-input-container>
     <label style="text-align:center">Photo Url</label>
-    <input type="text" ng-model="vm.Story.photo">
+    <input type="text" placeholder="{{s.photo}}" ng-model="edittedStory.photo">
     <img src="http://www.gettyimages.co.uk/gi-resources/images/Homepage/Category-Creative/UK/UK_Creative_462809583.jpg" alt="Story Image">
   </md-input-container>
+  <md-input-container>
+    <label style="text-align:center">Body</label>
+    <textarea placeholder="{{s.body}}" ng-model="edittedStory.body"></textarea>
+  </md-input-container>
+  <!-- </div> -->
 
 
 
@@ -27,10 +33,6 @@ display form to edit Story page
       </md-chips>
   </md-input-container> -->
 
-  <md-input-container>
-    <label style="text-align:center">Body</label>
-    <textarea ng-model="vm.Story.body"></textarea>
-  </md-input-container>
   <div style="text-align:center">
   <md-button class="md-raised md-primary">Submit</md-button>
   <md-button class="md-raised md-warn">Cancel</md-button>

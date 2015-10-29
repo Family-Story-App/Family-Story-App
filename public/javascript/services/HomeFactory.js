@@ -27,8 +27,12 @@ o.getStories = function(){
 	return q.promise;
 };
 
-o.removeStory = function(){
-
+o.removeStory = function(id){
+	var q = $q.defer();
+	$http.deleteStory('/api/story/' + id).then(function(){
+		q.resolve();
+	});
+	return q.promise;
 };
 
 

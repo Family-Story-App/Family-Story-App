@@ -15,7 +15,7 @@
 
 		vm.logout = function() {
 			UserFactory.logout();
-			$state.go('Landing');
+			$state.go('Login');
 		};
 
 		vm.registerUser = function() {
@@ -23,7 +23,7 @@
 				$state.go('Home');
 			});
 		};
-		
+
 		vm.loginUser = function(){
 			console.log('login');
 			UserFactory.loginUser(vm.user).then(function(){
